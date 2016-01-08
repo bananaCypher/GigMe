@@ -1,0 +1,11 @@
+<h1>My Bookings</h1>
+
+<% @bookings.each do |booking| %>
+  <div class="booking-card">
+    <h2><%= booking.gig.act.name %> - <%= booking.gig.start_time.to_date %></h2>
+    <p>Location: <%= booking.gig.venue.name %>, <%= booking.gig.venue.location %></p>
+    <p>Cost: £<%= booking.gig.price %></p>
+    <%= link_to "View Gig Details", booking_path(booking) %>
+    <%= image_tag booking.gig.act.image %>
+  </div>
+<% end %>
