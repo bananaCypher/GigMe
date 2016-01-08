@@ -10,4 +10,8 @@
   <a href="#">More about <%= @gig.act.name %></a><!-- TODO -->
   <a href="#"><%= @gig.act.name %> at other venues</a><!-- TODO -->
   <a href="#">See what others have said about this act</a><!-- TODO -->
+  <%= form_for @booking do |f| %>
+    <%= f.hidden_field :gig_id, value: @gig.id %>
+    <%= f.submit 'Book Now' %>
+  <% end %>
 </div>

@@ -5,7 +5,7 @@
     <h2><%= booking.gig.act.name %> - <%= booking.gig.start_time.to_date %></h2>
     <p>Location: <%= booking.gig.venue.name %>, <%= booking.gig.venue.location %></p>
     <p>Cost: £<%= booking.gig.price %></p>
-    <%= link_to "View Gig Details", booking_path(booking) %>
+    <%= link_to "View Gig Details", gig_path(booking.gig) %>
     <%= image_tag booking.gig.act.image %>
   </div>
 <% end %>

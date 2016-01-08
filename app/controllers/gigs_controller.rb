@@ -1,10 +1,12 @@
 class GigsController < ApplicationController
   def index
     @gigs = Gig.all
+    @booking = Booking.new
   end
 
   def show
     @gig = Gig.find(params[:id])
+    @booking = Booking.new
   end
 
   def new

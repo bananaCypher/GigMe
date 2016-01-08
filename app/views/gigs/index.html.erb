@@ -13,7 +13,10 @@
       <p class='gig-small'><%= gig.start_time %></p>
       <p class='gig-small'>£<%= gig.price %></p>
       <p><%= gig.act.description %></p>
-      <button>Book Now</button>
+      <%= form_for @booking do |f| %>
+        <%= f.hidden_field :gig_id, value: gig.id %>
+        <%= f.submit 'Book Now' %>
+      <% end %>
     </div>
   <% end %>
 </article>
