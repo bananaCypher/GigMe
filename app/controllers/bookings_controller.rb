@@ -9,9 +9,9 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def new
-    @booking = Booking.new
-  end
+  # def new
+  #   @booking = Booking.new
+  # end
 
   def create
     booking = Booking.new(booking_params)
@@ -20,15 +20,15 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
-  def edit
-    @booking = Booking.find(params[:id])
-  end
+  # def edit
+  #   @booking = Booking.find(params[:id])
+  # end
 
-  def update
-    booking = Booking.find(params[:id])
-    booking.update(booking_params)
-    redirect_to booking_path(booking)
-  end
+  # def update
+  #   booking = Booking.find(params[:id])
+  #   booking.update(booking_params)
+  #   redirect_to booking_path(booking)
+  # end
 
   def destroy
     booking = Booking.find(params[:id])
