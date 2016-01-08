@@ -1,0 +1,71 @@
+<h2>Setup Gig</h2>
+<%= form_for @gig do |f| %>
+  <table class='gig-form'>
+    <tr>
+      <td>
+        <h3>Select Act</h3>
+      </td>
+      <td>
+        <h3>Act Details</h3>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <%= f.collection_select(:act_id, Act.all, :id, :name) %>
+        </div>
+      </td>
+      <td>
+        <div>
+          
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h3>Venue Details</h3>
+      </td>
+      <td>
+        <h3>Select Venue</h3>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          
+        </div>
+      </td>
+      <td>
+        <div>
+          <%= f.collection_select(:venue_id, Venue.all, :id, :name) %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h3>Select Timeslot</h3>
+      </td>
+      <td>
+        <h3>Tickets</h3>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <%= f.label :start_time %><%= f.datetime_select :start_time %><br>
+          <%= f.label :end_time %><%= f.datetime_select :end_time %><br>
+        </div>
+      </td>
+      <td>
+        <div>
+          <%= f.label :capacity, 'Number of tickets' %><%= f.number_field :capacity %><br>
+          <%= f.label :price, 'Price per ticket' %><%= f.number_field :price %><br>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.submit 'Create Gig' %></td>
+    </tr>
+  </table>
+<% end %>
