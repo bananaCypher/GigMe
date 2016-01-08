@@ -1,0 +1,22 @@
+<header class='fancy-header'>
+  <form>
+    <input type='text' placeholder='Search...'>
+    <input type='submit'>
+  </form>
+</header>
+
+<article class='gig-cards'>
+  <% @gigs.each do |gig| %>
+    <div>
+      <h3><%= gig.act.name %> - Live at <%= gig.venue.name %></h3>
+      <%= image_tag gig.act.image %>
+      <p class='gig-small'><%= gig.start_time %></p>
+      <p class='gig-small'>£<%= gig.price %></p>
+      <p><%= gig.act.description %></p>
+      <button>Book Now</button>
+    </div>
+  <% end %>
+</article>
+
+<footer class='fancy-footer'>
+</footer>
