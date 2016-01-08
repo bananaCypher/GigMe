@@ -2,28 +2,45 @@
 <html>
 <head>
   <title>GigMe</title>
+  <link rel="stylesheet" type="text/css" href="/normalize.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <header class="main-header">
-  <nav>
-    <ul>
-      <li><h1>Gig Me</h1></li>
+  <table>
+    <tr>
+      <td>
+        <h1>Gig Me</h1>
+      </td>
       <% if current_user %>
-        <li><%= link_to 'My Bookings', bookings_path %></li>
+        <td>
+          <%= link_to "My Bookings", bookings_path %>
+        </td>
       <% end %>
-      <li><%= link_to 'Gigs', gigs_path %></li>
-      <li><%= link_to 'Acts', '' %></li>
-      <li><%= link_to 'Venues', '' %></li>
+      <td>
+        <%= link_to 'Gigs', gigs_path %>
+      </td>
+      <td>
+        <%= link_to 'Acts', '' %>
+      </td>
+      <td>
+        <%= link_to 'Venues', '' %>
+      </td>
       <% if current_user %>
-        <span><%= link_to "Log Out", destroy_user_session_path, method: :delete %>: <%= current_user.email %></span>
+        <td>
+          <span><%= link_to "Log Out", destroy_user_session_path, method: :delete %>: <%= current_user.email %></span>
+        </td>
       <% else %>
-        <li><%= link_to 'Log In', new_user_session_path %></li>
-        <li><%= link_to 'Register', new_user_registration_path %></li>
+        <td>
+          <%= link_to 'Log In', new_user_session_path %>
+        </td>
+        <td>
+          <%= link_to 'Register', new_user_registration_path %>
+        </td>
       <% end %>
-    </ul>
-  </nav>
+    </tr>
+  </table>
 </header>
 
 <body>
