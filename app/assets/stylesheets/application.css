@@ -23,6 +23,16 @@ html {
 body {
   background-color: #b6f4f2;
 }
+.star {
+  background-image: url('/Star.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.no-star {
+  background-image: url('/StarEmpty.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 
 /* Header Styles */
 header.main-header {
@@ -97,4 +107,60 @@ footer.main-footer {
 }
 footer.main-footer img {
   width: 100%;
+}
+
+/* Gig Cards */
+article.gig-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; 
+}
+article.gig-cards div {
+  background-color: #ececec;
+  margin: 25px 25px;
+  width: 40%;
+  padding: 10px 10px;
+  position: relative;
+}
+article.gig-cards img {
+  width: 40%;
+  float: left;
+}
+article.gig-cards h3 {
+  margin: 0;
+}
+article.gig-cards p.gig-small {
+  margin: 0;
+  font-size: 0.75em;
+}
+article.gig-cards p {
+  font-size: 0.85em;
+}
+article.gig-cards table {
+  width: 100%;
+  table-layout:fixed;
+  font-size: 0.75em;
+}
+article.gig-cards td {
+  width: 22px;
+  height: 22px;
+  white-space: nowrap;
+  overflow: scroll;
+  vertical-align: middle;
+}
+article.gig-cards td:last-of-type {
+  width: 100%;
+}
+article.gig-cards form {
+  height: 40px;
+}
+article.gig-cards input[type=submit] {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #ff4081;
+  border: 0;
+  padding: 11px 14px;
+  color: #b6f4f2;
+  font-weight: bold;
 }

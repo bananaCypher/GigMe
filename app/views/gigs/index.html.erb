@@ -9,11 +9,37 @@
 <article class='gig-cards'>
   <% @gigs.each do |gig| %>
     <div>
-      <h3><%= gig.act.name %> - Live at <%= gig.venue.name %></h3>
       <%= image_tag gig.act.image %>
+      <h3><%= gig.act.name %> - Live at <%= gig.venue.name %></h3>
       <p class='gig-small'><%= gig.start_time %></p>
       <p class='gig-small'>£<%= gig.price %></p>
-      <p><%= gig.act.description %></p>
+      <p><%= gig.act.name %> are playing live at <%= gig.venue.name %> on <%= gig.start_time.to_date %>.  Tickets cost £<%= gig.price %>, book your now before they sell out.</p>
+      <table>
+        <tr>
+          <td class="star"></td>
+          <td class="star"></td>
+          <td class="star"></td>
+          <td class="star"></td>
+          <td class="no-star"></td>
+          <td>The daily mail: Brilliant set to go and see live!</td>
+        </tr>
+        <tr>
+          <td class="star"></td>
+          <td class="star"></td>
+          <td class="star"></td>
+          <td class="star"></td>
+          <td class="no-star"></td>
+          <td>Rolling Stones: They might be old but boy can they still put on a good show.</td>
+        </tr>
+        <tr>
+          <td class="star"></td>
+          <td class="star"></td>
+          <td class="star"></td>
+          <td class="star"></td>
+          <td class="star"></td>
+          <td>The Sun: A must see!!!</td>
+        </tr>
+      </table>
       <%= form_for @booking do |f| %>
         <%= f.hidden_field :gig_id, value: gig.id %>
         <%= f.submit 'Book Now' %>
