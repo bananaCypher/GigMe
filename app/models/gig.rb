@@ -4,4 +4,14 @@ class Gig < ActiveRecord::Base
 
   has_many :bookings
   has_many :users, through: :bookings
+
+  def available_spaces
+    self.capacity - self.users.count 
+  end
+
+  def full?
+    self.available_spaces <= 0
+  end
+
+  scope :available, -> { all.find_all { |gig|  gig.full? == false } }
 end

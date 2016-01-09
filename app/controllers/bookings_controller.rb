@@ -16,9 +16,13 @@ class BookingsController < ApplicationController
 
   def create
     booking = Booking.new(booking_params)
-    booking.user = current_user
-    booking.save
-    redirect_to bookings_path
+    if !booking.gig.full?
+      booking.user = current_user
+      booking.save
+      redirect_to bookings_path
+    else 
+      raise ArgumentError.new('Unfortunatley that gig is fully booked.') 
+    end
   end
 
   # def edit
