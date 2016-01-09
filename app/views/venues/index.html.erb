@@ -1,0 +1,14 @@
+<% @venues.each do |venue| %>
+  <h3><%= venue.name %>, <small><%= venue.location %></small></h3>
+  <p>Capacity: <%= venue.capacity %></p>
+  <p>Gigs in the next 7 days: 
+    <% gigs = Gig.where(start_time: (Time.now..7.days.from_now), venue_id: venue.id) %>
+    <% if !gigs.empty? %>
+      <% gigs.each do |gig| %>
+        <%= link_to gig.act.name, gig_path(gig) %> 
+      <% end %>
+    <% else %>
+      None
+    <% end %>
+  </p>
+<% end %>
