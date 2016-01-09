@@ -36,6 +36,12 @@ class GigsController < ApplicationController
     redirect_to gigs_path
   end
 
+  def search
+    @gigs = Gig.search(params[:term])
+    @booking = Booking.new
+    render 'index'
+  end
+
   private
   def gig_params
     params.require(:gig).permit(:price, :start_time, :end_time, :capacity, :act_id, :venue_id)

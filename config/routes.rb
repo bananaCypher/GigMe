@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'gigs#index'
+  get 'search' => 'gigs#search'
   resources :gigs
   resources :bookings
   resources :venues

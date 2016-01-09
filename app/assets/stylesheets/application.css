@@ -118,7 +118,7 @@ footer.main-footer img {
 /* Messages */
 div.messages {
   position: absolute;
-  top: 60px;
+  top: 45px;
   padding-left: 10px;
 }
 p.alert {

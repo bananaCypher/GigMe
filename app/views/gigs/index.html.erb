@@ -1,6 +1,6 @@
 <header class='fancy-header'>
-  <form>
-    <input type='text' placeholder='Search...'>
+  <form action="/search" method="get">
+    <input name='term' type='text' placeholder='Search...'>
     <button><%= image_tag '/SearchButton.png' %></button>
     <!-- <input type="image" src="SearchButton.png" alt="Submit"> -->
   </form>

@@ -8,6 +8,7 @@ class Ability
       can :manage, :all
     else
       can :read, Gig
+      can :search, Gig
       can :read, Venue
       can :read, Act
       can :create, Booking
