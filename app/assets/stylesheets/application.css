@@ -26,6 +26,7 @@ html {
   margin: 0 auto;
   width: 900px;
   background-color: white;
+  color: #363636;
 }
 body {
   background-color: #b6f4f2;
@@ -300,4 +301,41 @@ div.gig-review li.star, div.gig-show-card li.no-star {
   height: 23px;
   min-width: 23px;
   margin-bottom: -2px;
+}
+
+/* Bookings */
+h1.bookings-title {
+  margin-bottom: 0px;
+  margin-left: 25px;
+}
+div.booking-card {
+  background-color: #ececec;
+  margin: 25px;
+  padding: 15px;
+  overflow: hidden;
+  position: relative;
+}
+div.booking-card h2 {
+  font-weight: normal;
+  font-size: 1.75em;
+  margin: 0;
+  margin-bottom: 15px;
+}
+div.booking-card img {
+  width: 25%;
+  float: right;
+}
+div.booking-card p {
+  margin: 0;
+}
+div.booking-card a {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: #ff4081;
+  border: 0;
+  padding: 11px 14px;
+  color: #b6f4f2;
+  font-weight: bold;
+  text-decoration: none;
 }
