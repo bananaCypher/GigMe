@@ -7,7 +7,13 @@ class Ability
     if user.role? :admin
       can :manage, :all
     else
-      can :read, :all
+      can :read, Gig
+      can :read, Venue
+      can :read, Act
+      can :create, Booking
+      can :read, Booking do |booking|
+          booking.user == user
+      end
     end
 
     # Define abilities for the passed in user here. For example:
