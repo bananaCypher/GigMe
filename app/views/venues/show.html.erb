@@ -4,7 +4,7 @@
   <% gigs = @venue.gigs %>
   <% if !gigs.empty? %>
     <% gigs.each do |gig| %>
-      <br><%= link_to gig.act.name, gig_path(gig) %> - <%= gig.start_time.to_date %>
+      <br><%= link_to gig.act.name, gig_path(gig) %> - <%= gig.pretty_start_date %>
     <% end %>
   <% else %>
     None

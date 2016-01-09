@@ -2,7 +2,6 @@
   <form action="/search" method="get">
     <input name='term' type='text' placeholder='Search...'>
     <button><%= image_tag '/SearchButton.png' %></button>
-    <!-- <input type="image" src="SearchButton.png" alt="Submit"> -->
   </form>
 </header>
 
@@ -11,9 +10,9 @@
     <div>
       <%= image_tag gig.act.image %>
       <h3><%= gig.act.name %> - Live at <%= gig.venue.name %></h3>
-      <p class='gig-small'><%= gig.start_time %></p>
+      <p class='gig-small'><%= gig.pretty_start %></p>
       <p class='gig-small'>£<%= gig.price %></p>
-      <p><%= gig.act.name %> are playing live at <%= gig.venue.name %> on <%= gig.start_time.to_date %>.  Tickets cost £<%= gig.price %>, book your now before they sell out.</p>
+      <p><%= gig.act.name %> are playing live at <%= gig.venue.name %> on <%= gig.full_start %>.  Tickets cost £<%= gig.price %>, book yours now before they sell out.</p>
       <table>
         <tr>
           <td class="star"></td>

@@ -23,6 +23,7 @@ class Gig < ActiveRecord::Base
     (acts.map{|a| a.gigs}.flatten + venues.map{|v| v.gigs}.flatten).uniq
   end
 
+
   def pretty_start
     pretty_time(self.start_time)
   end
@@ -31,7 +32,43 @@ class Gig < ActiveRecord::Base
     pretty_time(self.end_time)
   end
 
+  def pretty_start_date
+    pretty_date(self.start_time)
+  end
+
+  def pretty_end_date
+    pretty_date(self.end_time)
+  end
+
+  def full_start
+    full_time(self.start_time)
+  end
+
+  def full_end
+    full_time(self.end_time)
+  end
+
+
+  private
   def pretty_time(time)
     time.strftime("%d/%m/%Y %H:%M")
+  end
+
+  def pretty_date(time)
+    time.strftime("%d/%m/%Y")
+  end
+
+  def full_time(time)
+    case time.day
+      when 1
+        mod = 'st'
+      when 2
+        mod = 'nd'
+      when 3
+        mod = 'rd'
+      else
+        mod = 'th'
+    end
+    time.strftime("%-d#{mod} of %B %Y")
   end
 end
