@@ -115,6 +115,19 @@ footer.main-footer img {
   width: 100%;
 }
 
+/* Messages */
+div.messages {
+  position: absolute;
+  top: 60px;
+  padding-left: 10px;
+}
+p.alert {
+  color: red;
+}
+p.notice {
+  color: lime;
+}
+
 /* Gig Cards */
 article.gig-cards {
   display: flex;

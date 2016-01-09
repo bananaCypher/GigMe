@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :bookings
   has_many :gigs, through: :bookings
+
+  def role?(role_to_check)
+    self.role.to_s == role_to_check.to_s
+  end
 end
