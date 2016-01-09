@@ -52,8 +52,8 @@
     <tr>
       <td>
         <div>
-          <%= f.label :start_time %><%= f.text_field :start_time, id: "start_time", value: @gig.pretty_start %><br>
-          <%= f.label :end_time %><%= f.text_field :end_time, id: "end_time", value: @gig.pretty_end %><br>
+          <%= f.label :start_time %><br><%= f.text_field :start_time, id: "start_time", value: @gig.pretty_start %><br>
+          <%= f.label :end_time %><br><%= f.text_field :end_time, id: "end_time", value: @gig.pretty_end %><br>
           <script>
             jQuery('#start_time').datetimepicker({
               format:'d/m/Y H:i',
@@ -66,8 +66,8 @@
       </td>
       <td>
         <div>
-          <%= f.label :capacity, 'Number of tickets' %><%= f.number_field :capacity %><br>
-          <%= f.label :price, 'Price per ticket' %><%= f.number_field :price %><br>
+          <%= f.label :capacity, 'Number of tickets' %><br><%= f.number_field :capacity %><br>
+          <%= f.label :price, 'Price per ticket' %><br><%= f.number_field :price, step: 0.01%><br>
         </div>
       </td>
     </tr>
