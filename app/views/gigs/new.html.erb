@@ -1,4 +1,4 @@
-<h2>Setup Gig</h2>
+<h2 style="text-align: center;">Setup Gig</h2>
 <%= form_for @gig do |f| %>
   <table class='gig-form'>
     <tr>
@@ -12,7 +12,7 @@
     <tr>
       <td>
         <div>
-          <%= f.collection_select(:act_id, Act.all, :id, :name) %>
+          <%= f.collection_select(:act_id, Act.all, :id, :name, {:selected => Act.first.id}, { size: Act.count }) %>
         </div>
       </td>
       <td>
@@ -37,7 +37,7 @@
       </td>
       <td>
         <div>
-          <%= f.collection_select(:venue_id, Venue.all, :id, :name) %>
+          <%= f.collection_select(:venue_id, Venue.all, :id, :name, {:selected => Venue.first.id}, { size: Venue.count }) %>
         </div>
       </td>
     </tr>
@@ -65,7 +65,7 @@
     </tr>
     <tr>
       <td></td>
-      <td><%= f.submit 'Create Gig' %></td>
+      <td><br><br><%= f.submit 'Create Gig' %></td>
     </tr>
   </table>
 <% end %>

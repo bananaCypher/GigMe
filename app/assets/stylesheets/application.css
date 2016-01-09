@@ -183,3 +183,42 @@ article.gig-cards input[type=submit] {
   color: #b6f4f2;
   font-weight: bold;
 }
+
+/* Gig Form */
+table.gig-form {
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 25px 0;
+  width: 80%;
+}
+table.gig-form td {
+  width: 50%;
+}
+table.gig-form tr:nth-of-type(even) td {
+  background-color: #ececec;
+}
+table.gig-form select {
+  width: 100%;
+  height: 400px;
+  background-color: rgba(0,0,0,0);
+  border: 0;
+  padding: 8px;
+}
+table.gig-form option {
+  overflow: scroll;
+}
+table.gig-form option:checked {
+  /* workaround from https://www.speich.net/articles/en/2014/01/23/css-trick-setting-background-color-of-a-selected-html-option-element/ */
+  background: #ff4081 repeat url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P879D4HwAGxwLBvwZM0AAAAABJRU5ErkJggg==");
+}
+table.gig-form option:hover {
+  background-color: #ff80ab;
+}
+table.gig-form input[type='submit'] {
+  width: 100%;
+  height: 75px;
+  border: 0;
+  font-size: 1.25em;
+  background-color: #ff4081;
+  font-weight: bold;
+}
