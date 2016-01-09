@@ -13,16 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+ /* Global Styles */
 html {
   margin: 0 auto;
   width: 900px;
   background-color: white;
 }
-
 body {
   background-color: #b6f4f2;
 }
 
+/* Header Styles */
 header.main-header {
   display: block;
   background-color: #363636;
@@ -60,6 +62,39 @@ header.main-header a {
 header.main-header a:visited {
   color: #ff4081;
 }
-/*header.main-header a:hover {
-  text-decoration: underline;
-}*/
+header.fancy-header {
+  background-image: url('/GigHeader.png');
+  background-size: 100% auto;
+  height: 265px;
+}
+header.fancy-header form {
+  position: relative;
+  top: 50%;
+  text-align: center;
+}
+header.fancy-header input[type=text] {
+  border: 0;
+  padding: 2px 5px;
+  background-color: #ececec;
+  height: 35px;
+  width: 200px;
+  top: -11px;
+  position: relative;
+}
+header.fancy-header button {
+  margin-left: -5px;
+  background-color: #ff4081;
+  border: 0;
+  padding: 0 2px;
+}
+header.fancy-header img {
+  height: 35px;
+}
+
+/* Footer Styles */
+footer.main-footer {
+  margin-top: 25px;
+}
+footer.main-footer img {
+  width: 100%;
+}
