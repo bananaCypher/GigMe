@@ -21,6 +21,17 @@ class Gig < ActiveRecord::Base
     venues = Venue.where('name LIKE ?', "%#{term}%")
     acts = acts + keywords.map{|k| k.acts}.flatten.uniq
     (acts.map{|a| a.gigs}.flatten + venues.map{|v| v.gigs}.flatten).uniq
-    #self.find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+  end
+
+  def pretty_start
+    pretty_time(self.start_time)
+  end
+
+  def pretty_end
+    pretty_time(self.end_time)
+  end
+
+  def pretty_time(time)
+    time.strftime("%d/%m/%Y %H:%M")
   end
 end

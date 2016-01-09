@@ -12,7 +12,7 @@
   <a href="#">See what others have said about this act</a><!-- TODO -->
   <%= form_for @booking do |f| %>
     <%= f.hidden_field :gig_id, value: @gig.id %>
-    <% if Booking.user_booked_gig? current_user, gig %>
+    <% if Booking.user_booked_gig? current_user, @gig %>
       <%= f.submit 'Book Now', data: {:confirm => 'You already have a ticket for this gig are you sure you want another?'} %>
     <% else %>
       <%= f.submit 'Book Now' %>
