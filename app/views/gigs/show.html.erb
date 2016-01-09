@@ -1,5 +1,12 @@
 <div class='gig-show-card'>
-  <h1><%= @gig.act.name %> ****</h1>
+  <ul>
+    <li><h1><%= @gig.act.name %></h1></li>
+    <li class="star"></li>
+    <li class="star"></li>
+    <li class="star"></li>
+    <li class="star"></li>
+    <li class="no-star"></li>
+  </ul>
   <div class='gig-show-img'>
     <%= image_tag @gig.act.image %>
     <p>Date: <%= @gig.pretty_start_date %></p>
@@ -18,4 +25,16 @@
       <%= f.submit 'Book Now' %>
     <% end %>
   <% end %>
+</div>
+
+<div class="gig-review">
+  <ul>
+    <li><h3>Joe Bloggs - 01/01/2016</h3></li>
+    <li class="star"></li>
+    <li class="star"></li>
+    <li class="star"></li>
+    <li class="star"></li>
+    <li class="star"></li>
+  </ul>
+  <p>A five star performance, and to be honest I expected nothing less.  I would highly recommedn goning to see AC DC to anyone and hope to see them again at some point in the future!!!</p>
 </div>

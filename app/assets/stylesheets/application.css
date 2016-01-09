@@ -227,3 +227,77 @@ table.gig-form input[type='submit'] {
   background-color: #ff4081;
   font-weight: bold;
 }
+
+/* Gig Show */
+div.gig-show-card {
+  background-color: #ececec;
+  margin: 25px;
+  overflow: hidden;
+  padding: 15px;
+  position: relative;
+  margin-bottom: 75px;
+}
+div.gig-show-card h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+div.gig-show-card ul {
+  padding: 5px;
+  margin: 0;
+}
+div.gig-show-card li {
+  display: inline-block;
+}
+div.gig-show-card li.star, div.gig-show-card li.no-star {
+  margin: 0;
+  padding: 0;
+  height: 46px;
+  min-width: 46px;
+  margin-bottom: -5px;
+}
+div.gig-show-card div.gig-show-img {
+  float: left;
+  width: 30%;
+  font-size: 0.75em;
+}
+div.gig-show-card div.gig-show-img p {
+  margin: 0;
+}
+div.gig-show-card a {
+  display: block;
+}
+div.gig-show-card input[type='submit'] {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #ff4081;
+  border: 0;
+  padding: 11px 14px;
+  color: #b6f4f2;
+  font-weight: bold;
+}
+
+/* Gig Review */
+div.gig-review {
+  background-color: #ececec;
+  margin: 25px;
+  padding: 15px;
+}
+div.gig-review h3 {
+  font-size: 1.25em;
+  margin: 0;
+}
+div.gig-review ul {
+  padding: 5px;
+  margin: 0;
+}
+div.gig-review li {
+  display: inline-block;
+}
+div.gig-review li.star, div.gig-show-card li.no-star {
+  margin: 0;
+  padding: 0;
+  height: 23px;
+  min-width: 23px;
+  margin-bottom: -2px;
+}
