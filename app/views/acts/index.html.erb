@@ -1,0 +1,40 @@
+<% @acts.each do |act| %>
+  <div class="act-cards">
+    <%= image_tag act.image %>
+    <h2><%= act.name %></h2>
+    <p><%= act.description %></p>
+    <% act.keywords.each do |keyword| %>
+      <a class="keyword" href="/search?term=<%= keyword.tag %>"><%= keyword.tag %></a>
+    <% end %>
+    <table>
+      <tr>
+        <td class="star"></td>
+        <td class="star"></td>
+        <td class="star"></td>
+        <td class="star"></td>
+        <td class="no-star"></td>
+        <td>The daily mail: Brilliant set to go and see live!</td>
+      </tr>
+      <tr>
+        <td class="star"></td>
+        <td class="star"></td>
+        <td class="star"></td>
+        <td class="star"></td>
+        <td class="no-star"></td>
+        <td>Rolling Stones: They might be old but boy can they still put on a good show.</td>
+      </tr>
+      <tr>
+        <td class="star"></td>
+        <td class="star"></td>
+        <td class="star"></td>
+        <td class="star"></td>
+        <td class="star"></td>
+        <td>The Sun: A must see!!!</td>
+      </tr>
+    </table>
+    <form action="/search" method="get">
+      <input type='hidden', name='term', value='<%= act.name %>'>
+      <input type='submit', value='See gigs'>
+    </form>
+  </div>
+<% end %>

@@ -15,12 +15,6 @@
  *= require jquery.datetimepicker
  */
 
-
-/* TEMP */
-img {
-  max-width: 100%;
-}
-
  /* Global Styles */
 html {
   margin: 0 auto;
@@ -40,6 +34,9 @@ body {
   background-image: url('/StarEmpty.png');
   background-size: contain;
   background-repeat: no-repeat;
+}
+img {
+  width: 100%;
 }
 
 /* Header Styles */
@@ -110,6 +107,7 @@ header.fancy-header button {
 }
 header.fancy-header img {
   height: 35px;
+  width: auto;
 }
 
 /* Footer Styles */
@@ -295,7 +293,7 @@ div.gig-review ul {
 div.gig-review li {
   display: inline-block;
 }
-div.gig-review li.star, div.gig-show-card li.no-star {
+div.gig-review li.star, div.gig-review li.no-star {
   margin: 0;
   padding: 0;
   height: 23px;
@@ -338,4 +336,54 @@ div.booking-card a {
   color: #b6f4f2;
   font-weight: bold;
   text-decoration: none;
+}
+
+/* Acts Page */
+div.act-cards {
+  background-color: #ececec;
+  margin: 25px;
+  padding: 15px;
+  overflow: hidden;
+}
+div.act-cards img {
+  float: right;
+  width: 40%;
+}
+div.act-cards h2{
+  margin: 0;
+}
+div.act-cards table {
+  width: 100%;
+  table-layout:fixed;
+  font-size: 0.75em;
+}
+div.act-cards td {
+  width: 22px;
+  height: 22px;
+  white-space: nowrap;
+  overflow: scroll;
+  vertical-align: middle;
+}
+div.act-cards  td:last-of-type {
+  width: 100%;
+}
+div.act-cards a {
+  background-color: orange;
+  margin: 0 2px;
+  padding: 1px 2px;
+  text-decoration: none;
+}
+div.act-cards a:visited {
+  color: inherit;
+}
+div.act-cards a:nth-of-type(even) {
+  background-color: green;
+}
+div.act-cards input[type='submit'] {
+  background-color: #ff4081;
+  margin-top: 5px;
+  border: 0;
+  padding: 11px 14px;
+  color: #b6f4f2;
+  font-weight: bold;
 }

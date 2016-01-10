@@ -1,6 +1,6 @@
 <header class='fancy-header'>
   <form action="/search" method="get">
-    <input name='term' type='text' placeholder='Search...'>
+    <input name='term' type='text' placeholder='Search...' value='<%= params[:term] %>'>
     <button><%= image_tag '/SearchButton.png' %></button>
   </form>
 </header>
