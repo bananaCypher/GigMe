@@ -8,7 +8,11 @@ class ActsController < ApplicationController
   end
 
   def create
-    Act.create(act_params)
+    act = Act.new(act_params)
+    keywords = params[:act][:keywords]
+    keywords.delete_at(0)
+    act.keywords << keywords.map {|k| Keyword.find(k)}
+    act.save
     redirect_to acts_path
   end
 
@@ -23,6 +27,10 @@ class ActsController < ApplicationController
   def update
     act = Act.find(params[:id])
     act.update(act_params)
+    keywords = params[:act][:keywords]
+    keywords.delete_at(0)
+    act.keywords << keywords.map {|k| Keyword.find(k)}
+    act.save
     redirect_to act_path(act)
   end
 
