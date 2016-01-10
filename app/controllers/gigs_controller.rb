@@ -17,6 +17,12 @@ class GigsController < ApplicationController
 
   def create
     gig = Gig.new(gig_params)
+    potential_clashes = gig.venue.gigs
+    potential_clashes.each do |g|
+      if gig.start_time >= g.start_time and gig.end_time <= g.end_time
+        raise ArgumentError.new("Failed to create Gig: Another gig is already scheduled at this venue for that time.")
+      end
+    end
     if gig.valid?
       gig.save
     else
