@@ -34,6 +34,7 @@ class ActsController < ApplicationController
     act.update(act_params)
     keywords = params[:act][:keywords]
     keywords.delete_at(0)
+    act.keywords.clear
     act.keywords << keywords.map {|k| Keyword.find(k)}
     if act.valid?
       act.save
