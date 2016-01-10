@@ -1,14 +1,17 @@
 <% @venues.each do |venue| %>
-  <h3><%= venue.name %>, <small><%= venue.location %></small></h3>
-  <p>Capacity: <%= venue.capacity %></p>
-  <p>Gigs in the next 7 days: 
-    <% gigs = venue.gigs.where(start_time: (Time.now..7.days.from_now)) %>
-    <% if !gigs.empty? %>
-      <% gigs.each do |gig| %>
-        <br><%= link_to gig.act.name, gig_path(gig) %> 
-      <% end %>
-    <% else %>
-      None
-    <% end %>
-  </p>
+    <div class="venue-card">
+        <h3><%= venue.name %>, <small><%= venue.location %></small></h3>
+        <p>Capacity: <%= venue.capacity %></p>
+        <p>Gigs in the next 7 days: 
+        <% gigs = venue.gigs.where(start_time: (Time.now..7.days.from_now)) %>
+        <% if !gigs.empty? %>
+            <% gigs.each do |gig| %>
+                <br><%= link_to "#{gig.act.name} - #{gig.pretty_start_date}", gig_path(gig) %>
+            <% end %>
+        <% else %>
+            <br>None
+        <% end %>
+        </p>
+
+    </div>
 <% end %>
