@@ -7,6 +7,7 @@ class Gig < ActiveRecord::Base
 
   has_many :bookings
   has_many :users, through: :bookings
+  has_many :reviews
 
   scope :available, -> { all.find_all { |gig|  gig.full? == false } }
 
