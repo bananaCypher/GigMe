@@ -2,7 +2,6 @@ class GigsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    #@gigs = Gig.all
     @gigs = Gig.all.upcoming.order(start_time: :asc)
     @booking = Booking.new
   end
@@ -17,7 +16,12 @@ class GigsController < ApplicationController
   end
 
   def create
-    gig = Gig.create(gig_params)
+    gig = Gig.new(gig_params)
+    if gig.valid?
+      gig.save
+    else
+      raise ArgumentError.new("Failed to create Gig: " + gig.errors.full_messages.join(", ")) 
+    end
     redirect_to gig_path(gig)
   end
 

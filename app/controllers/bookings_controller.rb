@@ -18,7 +18,11 @@ class BookingsController < ApplicationController
     booking = Booking.new(booking_params)
     if !booking.gig.full?
       booking.user = current_user
-      booking.save
+      if booking.valid?
+        booking.save
+      else
+        raise ArgumentError.new("Failed to create Booking: " + booking.errors.full_messages.join(", ")) 
+      end
       redirect_to bookings_path
     else 
       raise ArgumentError.new('Unfortunatley that gig is fully booked.') 

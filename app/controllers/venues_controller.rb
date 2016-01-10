@@ -10,7 +10,12 @@ class VenuesController < ApplicationController
   end
 
   def create
-    @venue = Venue.create(venue_params)
+    venue = Venue.new(venue_params)
+    if venue.valid?
+      venue.save
+    else
+      raise ArgumentError.new("Failed to create Venue: " + venue.errors.full_messages.join(", ")) 
+    end
     redirect_to venues_path
   end
 

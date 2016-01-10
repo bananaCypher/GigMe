@@ -1,4 +1,7 @@
 class Gig < ActiveRecord::Base
+  validates :price, :start_time, :end_time, :capacity, :act_id, :venue_id, presence: true
+  validates :price, :capacity, numericality: {greater_than_or_equal_to: 0}
+
   belongs_to :act
   belongs_to :venue
 
