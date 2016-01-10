@@ -12,7 +12,11 @@ class ActsController < ApplicationController
     keywords = params[:act][:keywords]
     keywords.delete_at(0)
     act.keywords << keywords.map {|k| Keyword.find(k)}
-    act.save
+    if act.valid?
+      act.save
+    else
+      raise ArgumentError.new("Failed to create Act: " + act.errors.full_messages.join(", ")) 
+    end
     redirect_to acts_path
   end
 
@@ -31,7 +35,11 @@ class ActsController < ApplicationController
     keywords = params[:act][:keywords]
     keywords.delete_at(0)
     act.keywords << keywords.map {|k| Keyword.find(k)}
-    act.save
+    if act.valid?
+      act.save
+    else
+      raise ArgumentError.new("Failed to update Act: " + act.errors.full_messages.join(", ")) 
+    end
     redirect_to act_path(act)
   end
 

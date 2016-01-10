@@ -1,6 +1,6 @@
 <% @acts.each do |act| %>
   <div class="act-cards">
-    <a href="/acts/<%= act.id %>">
+    <a href="/acts/<%= act.id %>" class="invis">
         <%= image_tag act.image %>
     </a>
     <h2><%= act.name %></h2>
