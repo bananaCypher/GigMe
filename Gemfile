@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'devise'
 gem 'cancancan'
 gem 'jquery-datetimepicker-rails'
+gem 'seed_dump'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
