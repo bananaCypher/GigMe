@@ -38,6 +38,10 @@ body {
 .sold-out {
   background-color: #ffa8c6 !important;
 }
+.inline {
+  margin: 0 25px;
+  padding: 0 15px;
+}
 img {
   width: 100%;
 }

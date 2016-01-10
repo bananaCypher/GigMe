@@ -1,0 +1,75 @@
+<div class="act-cards">
+    <%= image_tag @act.image %>
+    <h2><%= @act.name %></h2>
+    <p><%= @act.description %></p>
+    <% @act.keywords.each do |keyword| %>
+      <a class="keyword" href="/search?term=<%= keyword.tag %>"><%= keyword.tag %></a>
+    <% end %>
+</div>
+
+
+<h2 class='inline'>Upcoming Gigs</h2>
+<article class='gig-cards'>
+    <% @act.gigs.upcoming.each do |gig| %>
+        <div>
+            <a href="/gigs/<%= gig.id %>"><%= image_tag gig.act.image %></a>
+            <h3><%= gig.act.name %> - Live at <%= gig.venue.name %></h3>
+            <p class='gig-small'><%= gig.pretty_start %></p>
+            <p class='gig-small'>£<%= gig.price %></p>
+            <p><%= gig.act.name %> are playing live at <%= gig.venue.name %> on <%= gig.full_start %>.  Tickets cost £<%= gig.price %>, book yours now before they sell out.</p>
+            <table>
+                <tr>
+                    <td class="star"></td>
+                    <td class="star"></td>
+                    <td class="star"></td>
+                    <td class="star"></td>
+                    <td class="no-star"></td>
+                    <td>The daily mail: Brilliant set to go and see live!</td>
+                </tr>
+                <tr>
+                    <td class="star"></td>
+                    <td class="star"></td>
+                    <td class="star"></td>
+                    <td class="star"></td>
+                    <td class="no-star"></td>
+                    <td>Rolling Stones: They might be old but boy can they still put on a good show.</td>
+                </tr>
+                <tr>
+                    <td class="star"></td>
+                    <td class="star"></td>
+                    <td class="star"></td>
+                    <td class="star"></td>
+                    <td class="star"></td>
+                    <td>The Sun: A must see!!!</td>
+                </tr>
+            </table>
+            <% if gig.full? %>
+                <form>
+                    <input type='submit' disabled value='Sold Out' class='sold-out'>
+                </form>
+            <% else %>
+                <%= form_for @booking do |f| %>
+                    <%= f.hidden_field :gig_id, value: gig.id %>
+                    <% if Booking.user_booked_gig? current_user, gig %>
+                        <%= f.submit 'Book Now', data: {:confirm => 'You already have a ticket for this gig are you sure you want another?'} %>
+                    <% else %>
+                        <%= f.submit 'Book Now' %>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+    <% end %>
+</article>
+
+<h2 class='inline'>Reviews</h2>
+<div class="gig-review">
+  <ul>
+    <li><h3>Joe Bloggs - 01/01/2016</h3></li>
+    <li class="star"></li>
+    <li class="star"></li>
+    <li class="star"></li>
+    <li class="star"></li>
+    <li class="star"></li>
+  </ul>
+  <p>A five star performance, and to be honest I expected nothing less.  I would highly recommedn goning to see AC DC to anyone and hope to see them again at some point in the future!!!</p>
+</div>

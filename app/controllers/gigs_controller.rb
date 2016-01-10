@@ -3,7 +3,7 @@ class GigsController < ApplicationController
   
   def index
     #@gigs = Gig.all
-    @gigs = Gig.where("start_time >= ?", Time.now).order(start_time: :asc)
+    @gigs = Gig.all.upcoming.order(start_time: :asc)
     @booking = Booking.new
   end
 

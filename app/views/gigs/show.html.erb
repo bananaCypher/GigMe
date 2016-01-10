@@ -18,7 +18,9 @@
   <a href="/search?term=<%= @gig.act.name %>"><%= @gig.act.name %> at other venues</a><!-- TODO -->
   <a href="#">See what others have said about this act</a><!-- TODO -->
   <% if @gig.full? %>
-      <input type='submit' disabled value='Sold Out' class='sold-out'>
+      <form>
+        <input type='submit' disabled value='Sold Out' class='sold-out'>
+      </form>
   <% else %>
       <%= form_for @booking do |f| %>
           <%= f.hidden_field :gig_id, value: @gig.id %>

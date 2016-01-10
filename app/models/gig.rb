@@ -23,6 +23,9 @@ class Gig < ActiveRecord::Base
     (acts.map{|a| a.gigs}.flatten + venues.map{|v| v.gigs}.flatten).uniq
   end
 
+  def self.upcoming
+    self.where("start_time >= ?", Time.now)
+  end
 
   def pretty_start
     pretty_time(self.start_time)
