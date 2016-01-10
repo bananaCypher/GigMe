@@ -18,30 +18,17 @@
             <p class='gig-small'>£<%= gig.price %></p>
             <p><%= gig.act.name %> are playing live at <%= gig.venue.name %> on <%= gig.full_start %>.  Tickets cost £<%= gig.price %>, book yours now before they sell out.</p>
             <table>
-                <tr>
-                    <td class="star"></td>
-                    <td class="star"></td>
-                    <td class="star"></td>
-                    <td class="star"></td>
-                    <td class="no-star"></td>
-                    <td>The daily mail: Brilliant set to go and see live!</td>
-                </tr>
-                <tr>
-                    <td class="star"></td>
-                    <td class="star"></td>
-                    <td class="star"></td>
-                    <td class="star"></td>
-                    <td class="no-star"></td>
-                    <td>Rolling Stones: They might be old but boy can they still put on a good show.</td>
-                </tr>
-                <tr>
-                    <td class="star"></td>
-                    <td class="star"></td>
-                    <td class="star"></td>
-                    <td class="star"></td>
-                    <td class="star"></td>
-                    <td>The Sun: A must see!!!</td>
-                </tr>
+                <% gig.reviews.sample(3).each do |review| %>
+                    <tr>
+                        <% review.stars_range.each do %>
+                            <td class="star"></td>
+                        <% end %>
+                        <% review.no_stars_range.each do %>
+                            <td class="no-star"></td>
+                        <% end %>
+                        <td><%= review.content %></td>
+                    </tr>
+                <% end %>
             </table>
             <% if gig.full? %>
                 <form>
@@ -61,15 +48,17 @@
     <% end %>
 </article>
 
-<h2 class='inline'>Reviews</h2>
-<div class="gig-review">
-  <ul>
-    <li><h3>Joe Bloggs - 01/01/2016</h3></li>
-    <li class="star"></li>
-    <li class="star"></li>
-    <li class="star"></li>
-    <li class="star"></li>
-    <li class="star"></li>
-  </ul>
-  <p>A five star performance, and to be honest I expected nothing less.  I would highly recommedn goning to see AC DC to anyone and hope to see them again at some point in the future!!!</p>
-</div>
+<% @act.gigs.map{|gig| gig.reviews}.flatten.each do |review| %>
+    <div class="gig-review">
+        <ul>
+            <li><h3><%= review.user.email %> - <%= review.created_at %></h3></li>
+            <% review.stars_range.each do %>
+                <li class="star"></li>
+            <% end %>
+            <% review.no_stars_range.each do %>
+                <li class="no-star"></li>
+            <% end %>
+        </ul>
+        <p><%= review.content %></p>
+    </div>
+<% end %>

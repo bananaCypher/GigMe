@@ -16,10 +16,10 @@
       <table>
         <% gig.reviews.sample(3).each do |review| %>
             <tr>
-                <% (1..review.rating).each do %>
+                <% review.stars_range.each do %>
                     <td class="star"></td>
                 <% end %>
-                <% (1..(5 - review.rating)).each do %>
+                <% review.no_stars_range.each do %>
                     <td class="no-star"></td>
                 <% end %>
                 <td><%= review.content %></td>

@@ -1,11 +1,12 @@
 <div class='gig-show-card'>
   <ul>
     <li><h1><%= @gig.act.name %></h1></li>
-    <li class="star"></li>
-    <li class="star"></li>
-    <li class="star"></li>
-    <li class="star"></li>
-    <li class="no-star"></li>
+    <% (1..Review.gig_average_rating(@gig)).each do %>
+        <li class="star"></li>
+    <% end %>
+    <% (1..(5 - Review.gig_average_rating(@gig))).each do %>
+        <li class="no-star"></li>
+    <% end %>
   </ul>
   <div class='gig-show-img'>
     <%= image_tag @gig.act.image %>
@@ -33,14 +34,17 @@
   <% end %>
 </div>
 
+<% @gig.reviews.each do |review| %>
 <div class="gig-review">
   <ul>
-    <li><h3>Joe Bloggs - 01/01/2016</h3></li>
-    <li class="star"></li>
-    <li class="star"></li>
-    <li class="star"></li>
-    <li class="star"></li>
-    <li class="star"></li>
+    <li><h3><%= review.user.email %> - <%= review.created_at %></h3></li>
+    <% review.stars_range.each do %>
+        <li class="star"></li>
+    <% end %>
+    <% review.no_stars_range.each do %>
+        <li class="no-star"></li>
+    <% end %>
   </ul>
-  <p>A five star performance, and to be honest I expected nothing less.  I would highly recommedn goning to see AC DC to anyone and hope to see them again at some point in the future!!!</p>
+  <p><%= review.content %></p>
 </div>
+<% end %>
