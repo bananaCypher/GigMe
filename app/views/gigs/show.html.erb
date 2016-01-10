@@ -11,19 +11,23 @@
     <%= image_tag @gig.act.image %>
     <p>Date: <%= @gig.pretty_start_date %></p>
     <p>Time: <%= @gig.start_time.to_s(:time) %></p>
-    <p>Seats Left: <%= @gig.available_spaces %></p> <!-- TODO -->
+    <p>Seats Left: <%= @gig.available_spaces %></p> 
   </div>
   <p><%= @gig.act.name %> are playing live at <%= @gig.venue.name %> on <%= @gig.full_start %>.  Tickets cost £<%= @gig.price %>, book your now before they sell out.</p>
-  <a href="#">More about <%= @gig.act.name %></a><!-- TODO -->
-  <a href="#"><%= @gig.act.name %> at other venues</a><!-- TODO -->
+  <%= link_to "More about #{@gig.act.name}", act_path(@gig.act) %>
+  <a href="/search?term=<%= @gig.act.name %>"><%= @gig.act.name %> at other venues</a><!-- TODO -->
   <a href="#">See what others have said about this act</a><!-- TODO -->
-  <%= form_for @booking do |f| %>
-    <%= f.hidden_field :gig_id, value: @gig.id %>
-    <% if Booking.user_booked_gig? current_user, @gig %>
-      <%= f.submit 'Book Now', data: {:confirm => 'You already have a ticket for this gig are you sure you want another?'} %>
-    <% else %>
-      <%= f.submit 'Book Now' %>
-    <% end %>
+  <% if @gig.full? %>
+      <input type='submit' disabled value='Sold Out' class='sold-out'>
+  <% else %>
+      <%= form_for @booking do |f| %>
+          <%= f.hidden_field :gig_id, value: @gig.id %>
+          <% if Booking.user_booked_gig? current_user, @gig %>
+              <%= f.submit 'Book Now', data: {:confirm => 'You already have a ticket for this gig are you sure you want another?'} %>
+          <% else %>
+              <%= f.submit 'Book Now' %>
+          <% end %>
+      <% end %>
   <% end %>
 </div>
 

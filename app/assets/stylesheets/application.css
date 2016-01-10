@@ -35,6 +35,9 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
 }
+.sold-out {
+  background-color: #ffa8c6 !important;
+}
 img {
   width: 100%;
 }
@@ -187,10 +190,7 @@ article.gig-cards input[type=submit] {
   color: #b6f4f2;
   font-weight: bold;
 }
-article.gig-cards input.sold-out {
-  background-color: #ffa8c6;
-}
-
+ 
 /* Gig Form */
 table.gig-form {
   margin: 0 auto;
