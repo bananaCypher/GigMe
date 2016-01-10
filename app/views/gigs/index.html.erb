@@ -14,30 +14,17 @@
       <p class='gig-small'>£<%= gig.price %></p>
       <p><%= gig.act.name %> are playing live at <%= gig.venue.name %> on <%= gig.full_start %>.  Tickets cost £<%= gig.price %>, book yours now before they sell out.</p>
       <table>
-        <tr>
-          <td class="star"></td>
-          <td class="star"></td>
-          <td class="star"></td>
-          <td class="star"></td>
-          <td class="no-star"></td>
-          <td>The daily mail: Brilliant set to go and see live!</td>
-        </tr>
-        <tr>
-          <td class="star"></td>
-          <td class="star"></td>
-          <td class="star"></td>
-          <td class="star"></td>
-          <td class="no-star"></td>
-          <td>Rolling Stones: They might be old but boy can they still put on a good show.</td>
-        </tr>
-        <tr>
-          <td class="star"></td>
-          <td class="star"></td>
-          <td class="star"></td>
-          <td class="star"></td>
-          <td class="star"></td>
-          <td>The Sun: A must see!!!</td>
-        </tr>
+        <% gig.reviews.sample(3).each do |review| %>
+            <tr>
+                <% (1..review.rating).each do %>
+                    <td class="star"></td>
+                <% end %>
+                <% (1..(5 - review.rating)).each do %>
+                    <td class="no-star"></td>
+                <% end %>
+                <td><%= review.content %></td>
+            </tr>
+        <% end %>
       </table>
       <% if gig.full? %>
           <form>
