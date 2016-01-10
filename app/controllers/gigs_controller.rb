@@ -2,8 +2,8 @@ class GigsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    #@gigs = Gig.available
-    @gigs = Gig.all
+    #@gigs = Gig.all
+    @gigs = Gig.where("start_time >= ?", Time.now).order(start_time: :asc)
     @booking = Booking.new
   end
 
