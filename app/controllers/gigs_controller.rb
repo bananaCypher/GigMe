@@ -2,7 +2,8 @@ class GigsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @gigs = Gig.available
+    #@gigs = Gig.available
+    @gigs = Gig.all
     @booking = Booking.new
   end
 

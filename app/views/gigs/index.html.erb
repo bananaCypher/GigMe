@@ -8,7 +8,7 @@
 <article class='gig-cards'>
   <% @gigs.each do |gig| %>
     <div>
-      <%= image_tag gig.act.image %>
+      <a href="/gigs/<%= gig.id %>"><%= image_tag gig.act.image %></a>
       <h3><%= gig.act.name %> - Live at <%= gig.venue.name %></h3>
       <p class='gig-small'><%= gig.pretty_start %></p>
       <p class='gig-small'>£<%= gig.price %></p>
@@ -39,14 +39,18 @@
           <td>The Sun: A must see!!!</td>
         </tr>
       </table>
-      <%= form_for @booking do |f| %>
-        <%= f.hidden_field :gig_id, value: gig.id %>
-        <% if Booking.user_booked_gig? current_user, gig %>
-          <%= f.submit 'Book Now', data: {:confirm => 'You already have a ticket for this gig are you sure you want another?'} %>
-        <% else %>
-          <%= f.submit 'Book Now' %>
+      <% if gig.full? %>
+          <input type='submit' disabled value='Sold Out' class='sold-out'>
+      <% else %>
+        <%= form_for @booking do |f| %>
+            <%= f.hidden_field :gig_id, value: gig.id %>
+                <% if Booking.user_booked_gig? current_user, gig %>
+                    <%= f.submit 'Book Now', data: {:confirm => 'You already have a ticket for this gig are you sure you want another?'} %>
+                <% else %>
+                    <%= f.submit 'Book Now' %>
+                <% end %>
         <% end %>
-      <% end %>
+       <% end %>
     </div>
   <% end %>
 </article>
