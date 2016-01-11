@@ -508,3 +508,29 @@ div.act-form input[type='submit']{
     color: #b6f4f2;
     font-weight: bold;
 }
+
+/* Venue form */
+div.venue-form {
+    background-color: #ececec;
+    margin: 25px;
+    padding: 15px;
+    overflow: hidden;
+}
+div.venue-form label {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+div.venue-form div.select-container {
+    float: right;
+}
+div.venue-form input[type='text'], div.venue-form input[type='number']  {
+    width: 300px;
+}
+div.venue-form input[type='submit']{
+    background-color: #ff4081;
+    margin-top: 5px;
+    border: 0;
+    padding: 11px 14px;
+    color: #b6f4f2;
+    font-weight: bold;
+}

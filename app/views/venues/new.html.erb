@@ -1,12 +1,14 @@
-<%= form_for @venue do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
+<div class='venue-form'>
+    <%= form_for @venue do |f| %>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %><br>
 
-    <%= f.label :location %>
-    <%= f.text_field :location %><br>
+        <%= f.label :location %><br>
+        <%= f.text_field :location %><br>
 
-    <%= f.label :capacity %>
-    <%= f.number_field :capacity %><br>
+        <%= f.label :capacity %><br>
+        <%= f.number_field :capacity %><br>
 
-    <%= f.submit %>
-<% end %>
+        <%= f.submit %>
+    <% end %>
+</div>
