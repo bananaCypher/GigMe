@@ -25,6 +25,7 @@
   <% else %>
       <%= form_for @booking do |f| %>
           <%= f.hidden_field :gig_id, value: @gig.id %>
+          <% current_user ||= User.new %>
           <%= f.submit 'Book Now', data: current_user.booking_warnings(@gig) %>
       <% end %>
   <% end %>
