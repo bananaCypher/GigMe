@@ -16,7 +16,7 @@
             <h3><%= gig.act.name %> - Live at <%= gig.venue.name %></h3>
             <p class='gig-small'><%= gig.pretty_start %></p>
             <p class='gig-small'>£<%= gig.price %></p>
-            <p><%= gig.act.name %> are playing live at <%= gig.venue.name %> on <%= gig.full_start %>.  Tickets cost £<%= gig.price %>, book yours now before they sell out.</p>
+            <p><%= gig.paragraph %></p>
             <table>
                 <% gig.reviews.sample(3).each do |review| %>
                     <tr>
@@ -37,11 +37,8 @@
             <% else %>
                 <%= form_for @booking do |f| %>
                     <%= f.hidden_field :gig_id, value: gig.id %>
-                    <% if Booking.user_booked_gig? current_user, gig %>
-                        <%= f.submit 'Book Now', data: {:confirm => 'You already have a ticket for this gig are you sure you want another?'} %>
-                    <% else %>
-                        <%= f.submit 'Book Now' %>
-                    <% end %>
+                    <% user = current_user || User.new %>
+                    <%= f.submit 'Book Now', data: user.booking_warnings(gig) %>
                 <% end %>
             <% end %>
         </div>

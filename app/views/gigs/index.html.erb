@@ -1,5 +1,3 @@
-<% current_user ||= User.new %>
-
 <header class='fancy-header'>
   <form action="/search" method="get">
     <input name='term' type='text' placeholder='Search...' value='<%= params[:term] %>'>
@@ -35,7 +33,8 @@
       <% else %>
         <%= form_for @booking do |f| %>
             <%= f.hidden_field :gig_id, value: gig.id %>
-            <%= f.submit 'Book Now', data: current_user.booking_warnings(gig) %>
+            <% user = current_user || User.new %>
+            <%= f.submit 'Book Now', data: user.booking_warnings(gig) %>
         <% end %>
        <% end %>
     </div>
