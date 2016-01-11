@@ -50,6 +50,7 @@ img {
 header.main-header {
   display: block;
   background-color: #363636;
+  margin-bottom: 40px;
 }
 header.main-header h1 {
   margin: 0 0;
@@ -91,6 +92,7 @@ header.fancy-header {
   background-image: url('/GigHeader.png');
   background-size: 100% auto;
   height: 265px;
+  margin-top: -40px;
 }
 header.fancy-header form {
   position: relative;
