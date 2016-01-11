@@ -32,11 +32,6 @@
                 </form>
             <% else %>
                 <a href="/bookings/new/<%= gig.id %>">Book Now</a>
-                <%= form_for @booking do |f| %>
-                    <%= f.hidden_field :gig_id, value: gig.id %>
-                    <% user = current_user || User.new %>
-                    <%= f.submit 'Book Now', data: user.booking_warnings(gig) %>
-                <% end %>
             <% end %>
         </div>
     <% end %>
