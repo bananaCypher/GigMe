@@ -10,9 +10,10 @@ class BookingsController < ApplicationController
         @booking = Booking.find(params[:id])
     end
 
-    # def new
-    #   @booking = Booking.new
-    # end
+    def new
+       @booking = Booking.new
+       @booking.gig_id = params[:gig_id]
+    end
 
     def create
         booking = Booking.new(booking_params)
@@ -20,6 +21,19 @@ class BookingsController < ApplicationController
             booking.user = current_user
             if booking.valid?
                 booking.save
+                @amount = (booking.gig.price * 100).to_i
+
+                customer = Stripe::Customer.create(
+                    :email => params[:stripeEmail],
+                    :source  => params[:stripeToken]
+                )
+
+                charge = Stripe::Charge.create(
+                    :customer    => customer.id,
+                    :amount      => @amount,
+                    :description => 'Rails Stripe customer',
+                    :currency    => 'gbp'
+                )
             else
                 redirect_to root_path, alert: ("Failed to create Booking: " + booking.errors.full_messages.join(", "))
                 return

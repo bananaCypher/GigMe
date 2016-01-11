@@ -1,0 +1,25 @@
+<% if current_user.is_double_booking? @booking.gig %>
+    <% flash[:alert] = "This gig clashes with a gig you already have a ticket for." %>
+<% end %>    
+<% if current_user.booked_gig? @booking.gig %>
+    <% flash[:alert] = "You already have a ticket for this gig." %>
+<% end %>
+
+
+<div class='new-booking'>
+    <div class="booking-card">
+        <%= form_for @booking do |f| %>
+            <%= image_tag @booking.gig.act.image %>
+            <h2><%= @booking.gig.act.name %> - <%= @booking.gig.pretty_start_date %></h2>
+            <p>Location: <%= @booking.gig.venue.name %>, <%= @booking.gig.venue.location %></p>
+            <p>Cost: £<%= @booking.gig.price %></p>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-currency="gbp"
+                data-amount="<%= @booking.gig.price * 100 %>"
+                data-locale="auto">
+            </script>
+            <%= f.hidden_field :gig_id, value: @booking.gig.id %>
+        <% end %>   
+    </div>
+</div>

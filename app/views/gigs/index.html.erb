@@ -31,6 +31,7 @@
                     <input type='submit' disabled value='Sold Out' class='sold-out'>
                 </form>
             <% else %>
+                <a href="/bookings/new/<%= gig.id %>">Book Now</a>
                 <%= form_for @booking do |f| %>
                     <%= f.hidden_field :gig_id, value: gig.id %>
                     <% user = current_user || User.new %>
