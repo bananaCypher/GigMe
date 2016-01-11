@@ -407,3 +407,26 @@ div.venue-card {
   padding: 15px;
   overflow: hidden;
 }
+
+
+/* Review form */
+/*div.review-form input[value="5"]:checked ~ input[type="radio"] {*/
+div.review-form input[type='radio'] {
+    display: none;
+}
+div.review-form input[type='radio'] + label{
+    background-image: url('/Star.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+}
+div.review-form input:checked ~ input[type='radio'] + label {
+    background-image: url('/StarEmpty.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+}

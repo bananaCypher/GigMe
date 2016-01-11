@@ -1,0 +1,23 @@
+<div class='review-form'>
+    <%= form_for @review do |f| %>
+        <%= f.label :gig_id %>
+        <%= f.collection_select(:gig_id, Gig.all, :id, :name_date) %><br>
+
+        <%= f.radio_button(:rating, "1", checked: true) %>
+        <label for='review_rating_1'></label>
+        <%= f.radio_button(:rating, "2") %>
+        <label for='review_rating_2'></label>
+        <%= f.radio_button(:rating, "3") %>
+        <label for='review_rating_3'></label>
+        <%= f.radio_button(:rating, "4") %>
+        <label for='review_rating_4'></label>
+        <%= f.radio_button(:rating, "5") %>
+        <label for='review_rating_5'></label>
+        <br>
+
+        <%= f.label :content %>
+        <%= f.text_area :content %><br>
+
+        <%= f.submit %>
+    <% end %>
+</div>

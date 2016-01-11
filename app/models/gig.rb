@@ -11,6 +11,13 @@ class Gig < ActiveRecord::Base
 
   scope :available, -> { all.find_all { |gig|  gig.full? == false } }
 
+    def name
+    self.act.name
+    end
+    def name_date
+    "#{self.name} - #{self.pretty_start_date}"
+    end
+
   def available_spaces
     self.capacity - self.users.count 
   end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'gigs#index'
   get 'search' => 'gigs#search'
   get 'admins/actions' => 'admins#actions'
+  resources :reviews
   resources :gigs
   resources :bookings
   resources :venues
