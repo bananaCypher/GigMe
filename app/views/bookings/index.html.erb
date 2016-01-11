@@ -1,11 +1,11 @@
 <h1 class="bookings-title">My Bookings</h1>
 <%= link_to 'Leave a review', new_review_path %>
 <% @bookings.each do |booking| %>
-  <div class="booking-card">
-    <%= image_tag booking.gig.act.image %>
-    <h2><%= booking.gig.act.name %> - <%= booking.gig.pretty_start_date %></h2>
-    <p>Location: <%= booking.gig.venue.name %>, <%= booking.gig.venue.location %></p>
-    <p>Cost: £<%= booking.gig.price %></p>
-    <%= link_to "View Gig Details", gig_path(booking.gig) %>
-  </div>
+    <div class="booking-card">
+        <%= image_tag booking.gig.act.image %>
+        <h2><%= booking.gig.act.name %> - <%= booking.gig.pretty_start_date %></h2>
+        <p>Location: <%= booking.gig.venue.name %>, <%= booking.gig.venue.location %></p>
+        <p>Cost: £<%= booking.gig.price %></p>
+        <%= link_to "View Gig Details", gig_path(booking.gig) %>
+    </div>
 <% end %>

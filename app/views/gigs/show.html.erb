@@ -1,47 +1,47 @@
 <div class='gig-show-card'>
-  <ul>
-    <li><h1><%= @gig.act.name %></h1></li>
-    <% @gig.avg_rating_stars_range.each do %>
-        <li class="star"></li>
+    <ul>
+        <li><h1><%= @gig.act.name %></h1></li>
+        <% @gig.avg_rating_stars_range.each do %>
+            <li class="star"></li>
+        <% end %>
+        <% @gig.avg_rating_no_stars_range.each do %>
+            <li class="no-star"></li>
+        <% end %>
+    </ul>
+    <div class='gig-show-img'>
+        <%= image_tag @gig.act.image %>
+        <p>Date: <%= @gig.pretty_start_date %></p>
+        <p>Time: <%= @gig.start_time.to_s(:time) %></p>
+        <p>Seats Left: <%= @gig.available_spaces %></p> 
+    </div>
+    <p><%= @gig.paragraph %></p>
+    <%= link_to "More about #{@gig.act.name}", act_path(@gig.act) %>
+    <a href="/search?term=<%= @gig.act.name %>"><%= @gig.act.name %> at other venues</a>
+    <a href="#">See what others have said about this act</a>
+    <% if @gig.full? %>
+        <form>
+            <input type='submit' disabled value='Sold Out' class='sold-out'>
+        </form>
+    <% else %>
+        <%= form_for @booking do |f| %>
+            <%= f.hidden_field :gig_id, value: @gig.id %>
+            <% user = current_user || User.new %>
+            <%= f.submit 'Book Now', data: user.booking_warnings(@gig) %>
+        <% end %>
     <% end %>
-    <% @gig.avg_rating_no_stars_range.each do %>
-        <li class="no-star"></li>
-    <% end %>
-  </ul>
-  <div class='gig-show-img'>
-    <%= image_tag @gig.act.image %>
-    <p>Date: <%= @gig.pretty_start_date %></p>
-    <p>Time: <%= @gig.start_time.to_s(:time) %></p>
-    <p>Seats Left: <%= @gig.available_spaces %></p> 
-  </div>
-  <p><%= @gig.paragraph %></p>
-  <%= link_to "More about #{@gig.act.name}", act_path(@gig.act) %>
-  <a href="/search?term=<%= @gig.act.name %>"><%= @gig.act.name %> at other venues</a>
-  <a href="#">See what others have said about this act</a>
-  <% if @gig.full? %>
-      <form>
-        <input type='submit' disabled value='Sold Out' class='sold-out'>
-      </form>
-  <% else %>
-      <%= form_for @booking do |f| %>
-          <%= f.hidden_field :gig_id, value: @gig.id %>
-          <% user = current_user || User.new %>
-          <%= f.submit 'Book Now', data: user.booking_warnings(@gig) %>
-      <% end %>
-  <% end %>
 </div>
 
 <% @gig.reviews.each do |review| %>
-<div class="gig-review">
-  <ul>
-    <li><h3><%= review.user.email %> - <%= review.created_at %></h3></li>
-    <% review.stars_range.each do %>
-        <li class="star"></li>
-    <% end %>
-    <% review.no_stars_range.each do %>
-        <li class="no-star"></li>
-    <% end %>
-  </ul>
-  <p><%= review.content %></p>
-</div>
+    <div class="gig-review">
+        <ul>
+            <li><h3><%= review.user.email %> - <%= review.created_at %></h3></li>
+            <% review.stars_range.each do %>
+                <li class="star"></li>
+            <% end %>
+            <% review.no_stars_range.each do %>
+                <li class="no-star"></li>
+            <% end %>
+        </ul>
+        <p><%= review.content %></p>
+    </div>
 <% end %>

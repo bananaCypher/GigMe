@@ -3,7 +3,7 @@
     <h2><%= @act.name %></h2>
     <p><%= @act.description %></p>
     <% @act.keywords.each do |keyword| %>
-      <a class="keyword" href="/search?term=<%= keyword.tag %>"><%= keyword.tag %></a>
+        <a class="keyword" href="/search?term=<%= keyword.tag %>"><%= keyword.tag %></a>
     <% end %>
 </div>
 

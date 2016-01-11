@@ -1,62 +1,62 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>GigMe</title>
-  <link rel="stylesheet" type="text/css" href="/normalize.css">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<header class="main-header">
-  <table>
-    <tr>
-      <td>
-        <h1><a href="/">Gig Me</a></h1>
-      </td>
-      <% if current_user %>
-        <td>
-          <%= link_to "My Bookings", bookings_path %>
-        </td>
-      <% end %>
-      <td>
-        <%= link_to 'Gigs', gigs_path %>
-      </td>
-      <td>
-        <%= link_to 'Acts', acts_path %>
-      </td>
-      <td>
-        <%= link_to 'Venues', venues_path %>
-      </td>
-      <% if current_user %>
-        <% if current_user.role? 'admin' %>
-          <td>
-            <%= link_to 'Admin', '/admins/actions' %>
-          </td>
-        <% end %>
-        <td>
-          <span><%= link_to "Log Out", destroy_user_session_path, method: :delete %>: <%= current_user.email %></span>
-        </td>
-      <% else %>
-        <td>
-          <%= link_to 'Log In', new_user_session_path %>
-        </td>
-        <td>
-          <%= link_to 'Register', new_user_registration_path %>
-        </td>
-      <% end %>
-    </tr>
-  </table>
-</header>
+    <head>
+        <title>GigMe</title>
+        <link rel="stylesheet" type="text/css" href="/normalize.css">
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
+    <header class="main-header">
+        <table>
+            <tr>
+                <td>
+                    <h1><a href="/">Gig Me</a></h1>
+                </td>
+                <% if current_user %>
+                    <td>
+                        <%= link_to "My Bookings", bookings_path %>
+                    </td>
+                <% end %>
+                <td>
+                    <%= link_to 'Gigs', gigs_path %>
+                </td>
+                <td>
+                    <%= link_to 'Acts', acts_path %>
+                </td>
+                <td>
+                    <%= link_to 'Venues', venues_path %>
+                </td>
+                <% if current_user %>
+                    <% if current_user.role? 'admin' %>
+                        <td>
+                            <%= link_to 'Admin', '/admins/actions' %>
+                        </td>
+                    <% end %>
+                    <td>
+                        <span><%= link_to "Log Out", destroy_user_session_path, method: :delete %>: <%= current_user.email %></span>
+                    </td>
+                <% else %>
+                    <td>
+                        <%= link_to 'Log In', new_user_session_path %>
+                    </td>
+                    <td>
+                        <%= link_to 'Register', new_user_registration_path %>
+                    </td>
+                <% end %>
+            </tr>
+        </table>
+    </header>
 
-<body>
-  <div class="messages">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  </div>
-<%= yield %>
+    <body>
+        <div class="messages">
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+        </div>
+        <%= yield %>
 
-<footer class="main-footer">
-  <%= image_tag '/GigFooter.png' %>
-</footer>
-</body>
+        <footer class="main-footer">
+            <%= image_tag '/GigFooter.png' %>
+        </footer>
+    </body>
 </html>

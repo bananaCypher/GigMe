@@ -7,10 +7,10 @@
         <% if !gigs.empty? %>
             <% gigs.each do |gig| %>
                 <br><%= link_to "#{gig.act.name} - #{gig.pretty_start_date}", gig_path(gig) %>
-            <% end %>
-        <% else %>
-            <br>None
         <% end %>
+    <% else %>
+        <br>None
+    <% end %>
         </p>
 
     </div>

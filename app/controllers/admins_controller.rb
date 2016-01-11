@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
     before_action :check_permissions
 
     def actions
-                
+
     end
 
     private

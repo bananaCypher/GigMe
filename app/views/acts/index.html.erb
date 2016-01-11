@@ -1,29 +1,29 @@
 <% @acts.each do |act| %>
-  <div class="act-cards">
-    <a href="/acts/<%= act.id %>" class="invis">
-        <%= image_tag act.image %>
-    </a>
-    <h2><%= act.name %></h2>
-    <p><%= act.description %></p>
-    <% act.keywords.each do |keyword| %>
-      <a class="keyword" href="/search?term=<%= keyword.tag %>"><%= keyword.tag %></a>
-    <% end %>
-    <table>
-        <% act.gigs.map{|gig| gig.reviews}.flatten.sample(3).each do |review| %>
-            <tr>
-                <% review.stars_range.each do %>
-                    <td class="star"></td>
-                <% end %>
-                <% review.no_stars_range.each do %>
-                    <td class="no-star"></td>
-                <% end %>
-                <td><%= review.content %></td>
-            </tr>
+    <div class="act-cards">
+        <a href="/acts/<%= act.id %>" class="invis">
+            <%= image_tag act.image %>
+        </a>
+        <h2><%= act.name %></h2>
+        <p><%= act.description %></p>
+        <% act.keywords.each do |keyword| %>
+            <a class="keyword" href="/search?term=<%= keyword.tag %>"><%= keyword.tag %></a>
         <% end %>
-    </table>
-    <form action="/search" method="get">
-      <input type='hidden', name='term', value='<%= act.name %>'>
-      <input type='submit', value='See gigs'>
-    </form>
-  </div>
+        <table>
+            <% act.gigs.map{|gig| gig.reviews}.flatten.sample(3).each do |review| %>
+                <tr>
+                    <% review.stars_range.each do %>
+                        <td class="star"></td>
+                    <% end %>
+                    <% review.no_stars_range.each do %>
+                        <td class="no-star"></td>
+                    <% end %>
+                    <td><%= review.content %></td>
+                </tr>
+            <% end %>
+        </table>
+        <form action="/search" method="get">
+            <input type='hidden', name='term', value='<%= act.name %>'>
+            <input type='submit', value='See gigs'>
+        </form>
+    </div>
 <% end %>

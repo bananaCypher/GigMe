@@ -1,80 +1,80 @@
 <h2 style="text-align: center;">Setup Gig</h2>
 <%= form_for @gig do |f| %>
-  <table class='gig-form'>
-    <tr>
-      <td>
-        <h3>Select Act</h3>
-      </td>
-      <td>
-        <h3>Act Details</h3>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div>
-          <%= f.collection_select(:act_id, Act.all, :id, :name, {:selected => Act.first.id}, { size: Act.count }) %>
-        </div>
-      </td>
-      <td>
-        <div>
-          
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <h3>Venue Details</h3>
-      </td>
-      <td>
-        <h3>Select Venue</h3>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div>
-          
-        </div>
-      </td>
-      <td>
-        <div>
-          <%= f.collection_select(:venue_id, Venue.all, :id, :name, {:selected => Venue.first.id}, { size: Venue.count }) %>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <h3>Select Timeslot</h3>
-      </td>
-      <td>
-        <h3>Tickets</h3>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div>
-          <%= f.label :start_time %><br><%= f.text_field :start_time, id: "start_time" %><br>
-          <%= f.label :end_time %><br><%= f.text_field :end_time, id: "end_time" %><br>
-          <script>
-            jQuery('#start_time').datetimepicker({
-              format:'d/m/Y H:i',
-            });
-            jQuery('#end_time').datetimepicker({
-              format:'d/m/Y H:i',
-            });
-          </script>
-        </div>
-      </td>
-      <td>
-        <div>
-          <%= f.label :capacity, 'Number of tickets' %><br><%= f.number_field :capacity %><br>
-          <%= f.label :price, 'Price per ticket' %><br><%= f.number_field :price, step: 0.01%><br>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-      </td>
-      <td><br><br><%= f.submit 'Create Gig' %></td>
-    </tr>
-  </table>
+    <table class='gig-form'>
+        <tr>
+            <td>
+                <h3>Select Act</h3>
+            </td>
+            <td>
+                <h3>Act Details</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <%= f.collection_select(:act_id, Act.all, :id, :name, {:selected => Act.first.id}, { size: Act.count }) %>
+                </div>
+            </td>
+            <td>
+                <div>
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Venue Details</h3>
+            </td>
+            <td>
+                <h3>Select Venue</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+
+                </div>
+            </td>
+            <td>
+                <div>
+                    <%= f.collection_select(:venue_id, Venue.all, :id, :name, {:selected => Venue.first.id}, { size: Venue.count }) %>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Select Timeslot</h3>
+            </td>
+            <td>
+                <h3>Tickets</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <%= f.label :start_time %><br><%= f.text_field :start_time, id: "start_time" %><br>
+                    <%= f.label :end_time %><br><%= f.text_field :end_time, id: "end_time" %><br>
+                    <script>
+jQuery('#start_time').datetimepicker({
+    format:'d/m/Y H:i',
+});
+jQuery('#end_time').datetimepicker({
+    format:'d/m/Y H:i',
+});
+                    </script>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <%= f.label :capacity, 'Number of tickets' %><br><%= f.number_field :capacity %><br>
+                    <%= f.label :price, 'Price per ticket' %><br><%= f.number_field :price, step: 0.01%><br>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td><br><br><%= f.submit 'Create Gig' %></td>
+        </tr>
+    </table>
 <% end %>
