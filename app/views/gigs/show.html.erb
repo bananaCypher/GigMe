@@ -1,10 +1,10 @@
 <div class='gig-show-card'>
   <ul>
     <li><h1><%= @gig.act.name %></h1></li>
-    <% (1..Review.gig_average_rating(@gig)).each do %>
+    <% @gig.avg_rating_stars_range.each do %>
         <li class="star"></li>
     <% end %>
-    <% (1..(5 - Review.gig_average_rating(@gig))).each do %>
+    <% @gig.avg_rating_no_stars_range.each do %>
         <li class="no-star"></li>
     <% end %>
   </ul>
@@ -14,10 +14,10 @@
     <p>Time: <%= @gig.start_time.to_s(:time) %></p>
     <p>Seats Left: <%= @gig.available_spaces %></p> 
   </div>
-  <p><%= @gig.act.name %> are playing live at <%= @gig.venue.name %> on <%= @gig.full_start %>.  Tickets cost £<%= @gig.price %>, book your now before they sell out.</p>
+  <p><%= @gig.paragraph %></p>
   <%= link_to "More about #{@gig.act.name}", act_path(@gig.act) %>
-  <a href="/search?term=<%= @gig.act.name %>"><%= @gig.act.name %> at other venues</a><!-- TODO -->
-  <a href="#">See what others have said about this act</a><!-- TODO -->
+  <a href="/search?term=<%= @gig.act.name %>"><%= @gig.act.name %> at other venues</a>
+  <a href="#">See what others have said about this act</a>
   <% if @gig.full? %>
       <form>
         <input type='submit' disabled value='Sold Out' class='sold-out'>
@@ -25,11 +25,7 @@
   <% else %>
       <%= form_for @booking do |f| %>
           <%= f.hidden_field :gig_id, value: @gig.id %>
-          <% if Booking.user_booked_gig? current_user, @gig %>
-              <%= f.submit 'Book Now', data: {:confirm => 'You already have a ticket for this gig are you sure you want another?'} %>
-          <% else %>
-              <%= f.submit 'Book Now' %>
-          <% end %>
+          <%= f.submit 'Book Now', data: current_user.booking_warnings(@gig) %>
       <% end %>
   <% end %>
 </div>
