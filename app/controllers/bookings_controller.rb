@@ -21,7 +21,8 @@ class BookingsController < ApplicationController
             if booking.valid?
                 booking.save
             else
-                raise ArgumentError.new("Failed to create Booking: " + booking.errors.full_messages.join(", ")) 
+                redirect_to root_path, alert: ("Failed to create Booking: " + booking.errors.full_messages.join(", "))
+                return
             end
             redirect_to bookings_path
         else 

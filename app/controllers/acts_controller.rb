@@ -15,7 +15,8 @@ class ActsController < ApplicationController
         if act.valid?
             act.save
         else
-            raise ArgumentError.new("Failed to create Act: " + act.errors.full_messages.join(", ")) 
+            redirect_to new_act_path, alert: ("Failed to create Act: " + act.errors.full_messages.join(", "))
+            return
         end
         redirect_to acts_path
     end
@@ -39,7 +40,8 @@ class ActsController < ApplicationController
         if act.valid?
             act.save
         else
-            raise ArgumentError.new("Failed to update Act: " + act.errors.full_messages.join(", ")) 
+            redirect_to edit_act_path(act), alert: ("Failed to update Act: " + act.errors.full_messages.join(", "))
+            return
         end
         redirect_to act_path(act)
     end

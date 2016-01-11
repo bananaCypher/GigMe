@@ -6,7 +6,12 @@ class ReviewsController < ApplicationController
     def create
         review = Review.new(review_params)
         review.user_id = current_user.id
-        review.save
+        if review.valid?
+            review.save
+        else
+            redirect_to new_review_path, alert: ("Failed to create REview: " + review.errors.full_messages.join(", "))
+            return
+        end
         redirect_to gig_path(Gig.find(review.gig_id))
     end
 

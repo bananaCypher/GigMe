@@ -14,7 +14,8 @@ class VenuesController < ApplicationController
         if venue.valid?
             venue.save
         else
-            raise ArgumentError.new("Failed to create Venue: " + venue.errors.full_messages.join(", ")) 
+            redirect_to new_venue_path, alert: ("Failed to create Venue: " + venue.errors.full_messages.join(", "))
+            return
         end
         redirect_to venues_path
     end
@@ -30,6 +31,12 @@ class VenuesController < ApplicationController
     def update
         venue = Venue.find(params[:id])
         venue.update(venue_params)
+        if venue.valid?
+            venue.save
+        else
+            redirect_to edit_venue_path(venue), alert: ("Failed to update Venue: " + venue.errors.full_messages.join(", "))
+            return
+        end
         redirect_to venue_path(venue)
     end
 

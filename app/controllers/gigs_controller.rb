@@ -17,17 +17,18 @@ class GigsController < ApplicationController
 
     def create
         gig = Gig.new(gig_params)
+        if !gig.valid?
+            redirect_to new_gig_path, alert: ("Failed to create Gig: " + gig.errors.full_messages.join(", "))
+            return
+        end
         potential_clashes = gig.venue.gigs
         potential_clashes.each do |g|
-            if gig.start_time >= g.start_time and gig.end_time <= g.end_time
-                raise ArgumentError.new("Failed to create Gig: Another gig is already scheduled at this venue for that time.")
+            if gig.start_time >= g.start_time and gig.start_time <= g.end_time
+                redirect_to new_gig_path, alert: ("Failed to create Gig: The start time clashes with another gig at this venue")
+                return
             end
         end
-        if gig.valid?
-            gig.save
-        else
-            raise ArgumentError.new("Failed to create Gig: " + gig.errors.full_messages.join(", ")) 
-        end
+        gig.save
         redirect_to gig_path(gig)
     end
 
@@ -38,6 +39,18 @@ class GigsController < ApplicationController
     def update
         gig = Gig.find(params[:id])
         gig.update(gig_params)
+        if !gig.valid?
+            redirect_to edit_gig_path(gig), alert: ("Failed to create Gig: " + gig.errors.full_messages.join(", "))
+            return
+        end
+        potential_clashes = gig.venue.gigs
+        potential_clashes.each do |g|
+            if gig.start_time >= g.start_time and gig.start_time <= g.end_time and g != gig
+                redirect_to edit_gig_path(edit), alert: ("Failed to update Gig: The start time clashes with another gig at this venue")
+                return
+            end
+        end
+        gig.save
         redirect_to gig_path(gig)
     end
 
