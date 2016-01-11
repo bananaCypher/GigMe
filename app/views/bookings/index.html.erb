@@ -1,5 +1,5 @@
 <h1 class="bookings-title">My Bookings</h1>
-<%= link_to 'Leave a review', new_review_path %>
+<%= link_to 'Leave a review', new_review_path, class: 'review-link' %>
 <% @bookings.each do |booking| %>
     <div class="booking-card">
         <%= image_tag booking.gig.act.image %>

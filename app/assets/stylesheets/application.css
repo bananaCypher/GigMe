@@ -15,404 +15,429 @@
  *= require jquery.datetimepicker
  */
 
- /* Global Styles */
+/* Global Styles */
 html {
-  margin: 0 auto;
-  width: 900px;
-  background-color: white;
-  color: #363636;
+    margin: 0 auto;
+    width: 900px;
+    background-color: white;
+    color: #363636;
 }
 body {
-  background-color: #b6f4f2;
+    background-color: #b6f4f2;
 }
 .star {
-  background-image: url('/Star.png');
-  background-size: contain;
-  background-repeat: no-repeat;
+    background-image: url('/Star.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .no-star {
-  background-image: url('/StarEmpty.png');
-  background-size: contain;
-  background-repeat: no-repeat;
+    background-image: url('/StarEmpty.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .sold-out {
-  background-color: #ffa8c6 !important;
+    background-color: #ffa8c6 !important;
 }
 .inline {
-  margin: 0 25px;
-  padding: 0 15px;
+    margin: 0 25px;
+    padding: 0 15px;
 }
 img {
-  width: 100%;
+    width: 100%;
 }
 
 /* Header Styles */
 header.main-header {
-  display: block;
-  background-color: #363636;
-  margin-bottom: 40px;
+    display: block;
+    background-color: #363636;
+    margin-bottom: 40px;
 }
 header.main-header h1 {
-  margin: 0 0;
-  text-align: left;
-  margin: 10px 20px;
+    margin: 0 0;
+    text-align: left;
+    margin: 10px 20px;
 }
 header.main-header h1 a {
-  color: #b6f4f2;
+    color: #b6f4f2;
 }
 header.main-header h1 a:visited {
-  color: #b6f4f2;
+    color: #b6f4f2;
 }
 header.main-header td {
-  vertical-align: middle;
-  white-space: nowrap;
-  color: #ff4081;
-  padding: 0 20px;
-  border-left: solid 2px white;
-  text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    color: #ff4081;
+    padding: 0 20px;
+    border-left: solid 2px white;
+    text-align: center;
 }
 header.main-header td:hover {
-  background-color: #5d5d5d;
+    background-color: #5d5d5d;
 }
 header.main-header td:first-of-type {
-  width: 100%;
-  color: #b6f4f2;
-  padding-left: 0;
-  border-left: 0;
+    width: 100%;
+    color: #b6f4f2;
+    padding-left: 0;
+    border-left: 0;
 }
 header.main-header a {
-  color: #ff4081;
-  text-decoration: none;
-  display: inline-block;
+    color: #ff4081;
+    text-decoration: none;
+    display: inline-block;
 }
 header.main-header a:visited {
-  color: #ff4081;
+    color: #ff4081;
 }
 header.fancy-header {
-  background-image: url('/GigHeader.png');
-  background-size: 100% auto;
-  height: 265px;
-  margin-top: -40px;
+    background-image: url('/GigHeader.png');
+    background-size: 100% auto;
+    height: 265px;
+    margin-top: -40px;
 }
 header.fancy-header form {
-  position: relative;
-  top: 50%;
-  text-align: center;
+    position: relative;
+    top: 50%;
+    text-align: center;
 }
 header.fancy-header input[type=text] {
-  border: 0;
-  padding: 2px 5px;
-  background-color: #ececec;
-  height: 35px;
-  width: 200px;
-  top: -11px;
-  position: relative;
+    border: 0;
+    padding: 2px 5px;
+    background-color: #ececec;
+    height: 35px;
+    width: 200px;
+    top: -11px;
+    position: relative;
 }
 header.fancy-header button {
-  margin-left: -5px;
-  background-color: #ff4081;
-  border: 0;
-  padding: 0 2px;
+    margin-left: -5px;
+    background-color: #ff4081;
+    border: 0;
+    padding: 0 2px;
 }
 header.fancy-header img {
-  height: 35px;
-  width: auto;
+    height: 35px;
+    width: auto;
 }
 
 /* Footer Styles */
 footer.main-footer {
-  margin-top: 25px;
+    margin-top: 25px;
 }
 footer.main-footer img {
-  margin-top: 4px;
-  width: 100%;
+    margin-top: 4px;
+    width: 100%;
 }
 
 /* Messages */
 div.messages {
-  position: absolute;
-  top: 45px;
-  padding-left: 10px;
-  width: 800px;
+    position: absolute;
+    top: 45px;
+    padding-left: 10px;
+    width: 800px;
 }
 p.alert {
-  color: red;
+    color: red;
 }
 p.notice {
-  color: lime;
+    color: lime;
 }
 
 /* Gig Cards */
 article.gig-cards {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap; 
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; 
 }
 article.gig-cards div {
-  background-color: #ececec;
-  margin: 25px 25px;
-  width: 40%;
-  padding: 10px 10px;
-  position: relative;
+    background-color: #ececec;
+    margin: 25px 25px;
+    width: 40%;
+    padding: 10px 10px;
+    position: relative;
 }
 article.gig-cards img {
-  width: 40%;
-  float: left;
+    width: 40%;
+    float: left;
 }
 article.gig-cards h3 {
-  margin: 0;
+    margin: 0;
 }
 article.gig-cards p.gig-small {
-  margin: 0;
-  font-size: 0.75em;
+    margin: 0;
+    font-size: 0.75em;
 }
 article.gig-cards p {
-  font-size: 0.85em;
+    font-size: 0.85em;
 }
 article.gig-cards table {
-  width: 100%;
-  table-layout:fixed;
-  font-size: 0.75em;
+    width: 100%;
+    table-layout:fixed;
+    font-size: 0.75em;
 }
 article.gig-cards td {
-  width: 22px;
-  height: 22px;
-  white-space: nowrap;
-  overflow: scroll;
-  vertical-align: middle;
+    width: 22px;
+    height: 22px;
+    white-space: nowrap;
+    overflow: scroll;
+    vertical-align: middle;
 }
 article.gig-cards td:last-of-type {
-  width: 100%;
+    width: 100%;
 }
 article.gig-cards form {
-  height: 40px;
+    height: 40px;
 }
 article.gig-cards input[type=submit] {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: #ff4081;
-  border: 0;
-  padding: 11px 14px;
-  color: #b6f4f2;
-  font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #ff4081;
+    border: 0;
+    padding: 11px 14px;
+    color: #b6f4f2;
+    font-weight: bold;
 }
- 
+
 /* Gig Form */
 table.gig-form {
-  margin: 0 auto;
-  border-collapse: separate;
-  border-spacing: 25px 0;
-  width: 80%;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 25px 0;
+    width: 80%;
 }
 table.gig-form td {
-  width: 50%;
+    width: 50%;
 }
 table.gig-form tr:nth-of-type(even) td {
-  background-color: #ececec;
-  padding: 8px;
+    background-color: #ececec;
+    padding: 8px;
 }
 table.gig-form select {
-  width: 100%;
-  height: 400px;
-  background-color: rgba(0,0,0,0);
-  border: 0;
+    width: 100%;
+    height: 400px;
+    background-color: rgba(0,0,0,0);
+    border: 0;
 }
 table.gig-form option {
-  overflow: scroll;
+    overflow: scroll;
 }
 table.gig-form option:checked {
-  /* workaround from https://www.speich.net/articles/en/2014/01/23/css-trick-setting-background-color-of-a-selected-html-option-element/ */
-  background: #ff4081 repeat url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P879D4HwAGxwLBvwZM0AAAAABJRU5ErkJggg==");
+    /* workaround from https://www.speich.net/articles/en/2014/01/23/css-trick-setting-background-color-of-a-selected-html-option-element/ */
+    background: #ff4081 repeat url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P879D4HwAGxwLBvwZM0AAAAABJRU5ErkJggg==");
 }
 table.gig-form option:hover {
-  background-color: #ff80ab;
+    background-color: #ff80ab;
 }
 table.gig-form input[type='submit'] {
-  width: 100%;
-  height: 75px;
-  border: 0;
-  font-size: 1.25em;
-  background-color: #ff4081;
-  font-weight: bold;
+    width: 100%;
+    height: 75px;
+    border: 0;
+    font-size: 1.25em;
+    background-color: #ff4081;
+    font-weight: bold;
 }
 
 /* Gig Show */
 div.gig-show-card {
-  background-color: #ececec;
-  margin: 25px;
-  overflow: hidden;
-  padding: 15px;
-  position: relative;
-  margin-bottom: 75px;
+    background-color: #ececec;
+    margin: 25px;
+    overflow: hidden;
+    padding: 15px;
+    position: relative;
+    margin-bottom: 75px;
 }
 div.gig-show-card h1 {
-  font-size: 2.5em;
-  margin: 0;
+    font-size: 2.5em;
+    margin: 0;
 }
 div.gig-show-card ul {
-  padding: 5px;
-  margin: 0;
+    padding: 5px;
+    margin: 0;
 }
 div.gig-show-card li {
-  display: inline-block;
+    display: inline-block;
 }
 div.gig-show-card li.star, div.gig-show-card li.no-star {
-  margin: 0;
-  padding: 0;
-  height: 46px;
-  min-width: 46px;
-  margin-bottom: -5px;
+    margin: 0;
+    padding: 0;
+    height: 46px;
+    min-width: 46px;
+    margin-bottom: -5px;
 }
 div.gig-show-card div.gig-show-img {
-  float: left;
-  width: 30%;
-  font-size: 0.75em;
+    float: left;
+    width: 30%;
+    font-size: 0.75em;
 }
 div.gig-show-card div.gig-show-img p {
-  margin: 0;
+    margin: 0;
 }
 div.gig-show-card a {
-  display: block;
+    display: block;
 }
 div.gig-show-card input[type='submit'] {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: #ff4081;
-  border: 0;
-  padding: 11px 14px;
-  color: #b6f4f2;
-  font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #ff4081;
+    border: 0;
+    padding: 11px 14px;
+    color: #b6f4f2;
+    font-weight: bold;
 }
 
 /* Gig Review */
 div.gig-review {
-  background-color: #ececec;
-  margin: 25px;
-  padding: 15px;
+    background-color: #ececec;
+    margin: 25px;
+    padding: 15px;
 }
 div.gig-review h3 {
-  font-size: 1.25em;
-  margin: 0;
+    font-size: 1.25em;
+    margin: 0;
 }
 div.gig-review ul {
-  padding: 5px;
-  margin: 0;
+    padding: 5px;
+    margin: 0;
 }
 div.gig-review li {
-  display: inline-block;
+    display: inline-block;
 }
 div.gig-review li.star, div.gig-review li.no-star {
-  margin: 0;
-  padding: 0;
-  height: 23px;
-  min-width: 23px;
-  margin-bottom: -2px;
+    margin: 0;
+    padding: 0;
+    height: 23px;
+    min-width: 23px;
+    margin-bottom: -2px;
 }
 
 /* Bookings */
 h1.bookings-title {
-  margin-bottom: 0px;
-  margin-left: 25px;
+    margin-bottom: 0px;
+    margin-left: 25px;
+}
+a.review-link {
+    margin-left: 25px;
 }
 div.booking-card {
-  background-color: #ececec;
-  margin: 25px;
-  padding: 15px;
-  overflow: hidden;
-  position: relative;
+    background-color: #ececec;
+    margin: 25px;
+    padding: 15px;
+    overflow: hidden;
+    position: relative;
 }
 div.booking-card h2 {
-  font-weight: normal;
-  font-size: 1.75em;
-  margin: 0;
-  margin-bottom: 15px;
+    font-weight: normal;
+    font-size: 1.75em;
+    margin: 0;
+    margin-bottom: 15px;
 }
 div.booking-card img {
-  width: 25%;
-  float: right;
+    width: 25%;
+    float: right;
 }
 div.booking-card p {
-  margin: 0;
+    margin: 0;
 }
 div.booking-card a {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background-color: #ff4081;
-  border: 0;
-  padding: 11px 14px;
-  color: #b6f4f2;
-  font-weight: bold;
-  text-decoration: none;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: #ff4081;
+    border: 0;
+    padding: 11px 14px;
+    color: #b6f4f2;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 /* Acts Page */
 div.act-cards {
-  background-color: #ececec;
-  margin: 25px;
-  padding: 15px;
-  overflow: hidden;
+    background-color: #ececec;
+    margin: 25px;
+    padding: 15px;
+    overflow: hidden;
 }
 div.act-cards img {
-  float: right;
-  width: 40%;
+    float: right;
+    width: 40%;
 }
 div.act-cards h2{
-  margin: 0;
+    margin: 0;
 }
 div.act-cards table {
-  width: 100%;
-  table-layout:fixed;
-  font-size: 0.75em;
+    width: 100%;
+    table-layout:fixed;
+    font-size: 0.75em;
 }
 div.act-cards td {
-  width: 22px;
-  height: 22px;
-  white-space: nowrap;
-  overflow: scroll;
-  vertical-align: middle;
+    width: 22px;
+    height: 22px;
+    white-space: nowrap;
+    overflow: scroll;
+    vertical-align: middle;
 }
 div.act-cards  td:last-of-type {
-  width: 100%;
+    width: 100%;
 }
 div.act-cards a.invis {
     background-color: rgba(0,0,0,0);
 }
 div.act-cards a {
-  background-color: orange;
-  margin: 0 2px;
-  padding: 1px 2px;
-  text-decoration: none;
-  color: inherit;
+    background-color: orange;
+    margin: 0 2px;
+    padding: 1px 2px;
+    text-decoration: none;
+    color: inherit;
 }
 div.act-cards a:visited {
-  color: inherit;
+    color: inherit;
 }
 div.act-cards a:nth-of-type(even) {
-  background-color: green;
+    background-color: green;
 }
 div.act-cards input[type='submit'] {
-  background-color: #ff4081;
-  margin-top: 5px;
-  border: 0;
-  padding: 11px 14px;
-  color: #b6f4f2;
-  font-weight: bold;
+    background-color: #ff4081;
+    margin-top: 5px;
+    border: 0;
+    padding: 11px 14px;
+    color: #b6f4f2;
+    font-weight: bold;
 }
 
 /* Venue cards */
 div.venue-card {
-  background-color: #ececec;
-  margin: 25px;
-  padding: 15px;
-  overflow: hidden;
+    background-color: #ececec;
+    margin: 25px;
+    padding: 15px;
+    overflow: hidden;
 }
 
 
 /* Review form */
 /*div.review-form input[value="5"]:checked ~ input[type="radio"] {*/
+div.review-form {
+    background-color: #ececec;
+    margin: 25px;
+    padding: 15px;
+    overflow: hidden;
+}
+div.review-form label {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+div.review-form textarea {
+    width: 100%;
+    height: 200px;
+}
+div.review-form input[type='submit'] {
+    background-color: #ff4081;
+    margin-top: 5px;
+    border: 0;
+    padding: 11px 14px;
+    color: #b6f4f2;
+    font-weight: bold;
+}
 div.review-form input[type='radio'] {
     display: none;
 }
@@ -431,4 +456,55 @@ div.review-form input:checked ~ input[type='radio'] + label {
     display: inline-block;
     height: 25px;
     width: 25px;
+}
+
+/* Admin page */
+div.admin-links {
+    margin-left: 25px;
+}
+div.admin-links a {
+    background-color: #ff4081;
+    margin-top: 5px;
+    border: 0;
+    padding: 11px 14px;
+    color: #b6f4f2;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Act form */
+div.act-form {
+    background-color: #ececec;
+    margin: 25px;
+    padding: 15px;
+    overflow: hidden;
+}
+div.act-form label {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+div.act-form textarea {
+    width: 600px;
+    height: 200px;
+}
+div.act-form input[type='text'] {
+    width: 100%;
+}
+div.act-form input[name='act[name]'] {
+    width: auto;
+}
+div.act-form div.select-container {
+    float: right;
+}
+div.act-form div.select-container select {
+    height: 250px;
+    width: 200px;
+}
+div.act-form input[type='submit']{
+    background-color: #ff4081;
+    margin-top: 5px;
+    border: 0;
+    padding: 11px 14px;
+    color: #b6f4f2;
+    font-weight: bold;
 }
