@@ -173,6 +173,7 @@ article.gig-cards table {
     width: 100%;
     table-layout:fixed;
     font-size: 0.75em;
+    margin-bottom: 45px;
 }
 article.gig-cards td {
     width: 22px;
@@ -184,9 +185,6 @@ article.gig-cards td {
 article.gig-cards td:last-of-type {
     width: 100%;
 }
-article.gig-cards form {
-    height: 40px;
-}
 article.gig-cards a:last-of-type {
     position: absolute;
     bottom: 10px;
@@ -196,6 +194,7 @@ article.gig-cards a:last-of-type {
     padding: 11px 14px;
     color: #b6f4f2;
     font-weight: bold;
+    text-decoration: none;
 }
 
 /* Gig Form */
