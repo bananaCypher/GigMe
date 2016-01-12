@@ -28,7 +28,7 @@
             </table>
             <% if gig.full? %>
                 <form>
-                    <input type='submit' disabled value='Sold Out' class='sold-out'>
+                    <input type='submit' disabled value='Sold Out'>
                 </form>
             <% else %>
                 <a href="/bookings/new/<%= gig.id %>">Book Now</a>

@@ -17,17 +17,13 @@
     <p><%= @gig.paragraph %></p>
     <%= link_to "More about #{@gig.act.name}", act_path(@gig.act) %>
     <a href="/search?term=<%= @gig.act.name %>"><%= @gig.act.name %> at other venues</a>
-    <a href="#">See what others have said about this act</a>
+    <%= link_to "See what others have said about this act", act_path(@gig.act) %>
     <% if @gig.full? %>
         <form>
-            <input type='submit' disabled value='Sold Out' class='sold-out'>
+            <input type='submit' disabled value='Sold Out'>
         </form>
     <% else %>
-        <%= form_for @booking do |f| %>
-            <%= f.hidden_field :gig_id, value: @gig.id %>
-            <% user = current_user || User.new %>
-            <%= f.submit 'Book Now', data: user.booking_warnings(@gig) %>
-        <% end %>
+        <a href="/bookings/new/<%= @gig.id %>">Book Now</a>
     <% end %>
 </div>
 

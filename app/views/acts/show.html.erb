@@ -32,14 +32,10 @@
             </table>
             <% if gig.full? %>
                 <form>
-                    <input type='submit' disabled value='Sold Out' class='sold-out'>
+                    <input type='submit' disabled value='Sold Out'>
                 </form>
             <% else %>
-                <%= form_for @booking do |f| %>
-                    <%= f.hidden_field :gig_id, value: gig.id %>
-                    <% user = current_user || User.new %>
-                    <%= f.submit 'Book Now', data: user.booking_warnings(gig) %>
-                <% end %>
+                <a href="/bookings/new/<%= gig.id %>">Book Now</a>
             <% end %>
         </div>
     <% end %>

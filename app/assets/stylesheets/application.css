@@ -196,6 +196,17 @@ article.gig-cards a:last-of-type {
     font-weight: bold;
     text-decoration: none;
 }
+article.gig-cards input[type='submit'] {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #ff80ab;
+    border: 0;
+    padding: 11px 14px;
+    color: #b6f4f2;
+    font-weight: bold;
+    text-decoration: none;
+}
 
 /* Gig Form */
 table.gig-form {
@@ -274,11 +285,22 @@ div.gig-show-card div.gig-show-img p {
 div.gig-show-card a {
     display: block;
 }
-div.gig-show-card input[type='submit'] {
+div.gig-show-card a:last-of-type {
     position: absolute;
     bottom: 10px;
     right: 10px;
     background-color: #ff4081;
+    border: 0;
+    padding: 11px 14px;
+    color: #b6f4f2;
+    font-weight: bold;
+    text-decoration: none;
+}
+div.gig-show-card input[type='submit'] {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #ffa8c6 !important;
     border: 0;
     padding: 11px 14px;
     color: #b6f4f2;
