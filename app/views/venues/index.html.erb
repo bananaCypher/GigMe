@@ -1,5 +1,26 @@
 <% @venues.each do |venue| %>
     <div class="venue-card">
+        <% if venue.longitude and venue.latitude %>
+            <script>
+                function initialize_<%= venue.id %>() {
+                    var position = {lat: <%= venue.latitude %>, lng: <%= venue.longitude %>}
+                    var mapCanvas = document.getElementById('map_<%= venue.id %>');
+                    var mapOptions = {
+                        center: position,
+                        zoom: 16,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    }
+                    var map = new google.maps.Map(mapCanvas, mapOptions)
+                    var marker = new google.maps.Marker({
+                        position: position,
+                        map: map,
+                        title: '<%= venue.name %>'
+                    });
+                }
+                google.maps.event.addDomListener(window, 'load', initialize_<%= venue.id %>);
+            </script>
+            <div id='map_<%= venue.id %>' style='width: 500px; height: 400px; float: right;'></div>
+        <% end %>
         <h3><%= venue.name %>, <small><%= venue.location %></small></h3>
         <p>Capacity: <%= venue.capacity %></p>
         <p>Gigs in the next 7 days: 
