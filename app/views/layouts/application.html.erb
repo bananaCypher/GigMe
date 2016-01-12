@@ -26,7 +26,7 @@
                     <%= link_to 'Acts', acts_path %>
                 </td>
                 <td>
-                    <%= link_to 'Venues', venues_path %>
+                    <%= link_to 'Venues', venues_path, method: :get %>
                 </td>
                 <% if current_user %>
                     <% if current_user.role? 'admin' %>
