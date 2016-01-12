@@ -3,12 +3,10 @@ class GigsController < ApplicationController
 
     def index
         @gigs = Gig.all.upcoming.order(start_time: :asc)
-        @booking = Booking.new
     end
 
     def show
         @gig = Gig.find(params[:id])
-        @booking = Booking.new
     end
 
     def new
@@ -62,7 +60,6 @@ class GigsController < ApplicationController
 
     def search
         @gigs = Gig.search(params[:term])
-        @booking = Booking.new
         render 'index'
     end
 
