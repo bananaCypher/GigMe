@@ -124,7 +124,7 @@ footer.main-footer {
     margin-top: 25px;
 }
 footer.main-footer img {
-    margin-top: 4px;
+    margin-bottom: -4px;
     width: 100%;
 }
 
