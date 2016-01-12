@@ -12,14 +12,17 @@
         <tr>
             <td>
                 <div>
-                    <%= f.collection_select(:act_id, Act.all, :id, :name, {:selected => Act.first.id}, { size: Act.count }) %>
+                    <%= f.collection_select(:act_id, Act.all, :id, :name, {:selected => Act.first.id}, { size: Act.count, onchange: "act_change()" }) %>
                 </div>
             </td>
             <td>
-                <div>
-
-                </div>
-            </td>
+                <% Act.all.each do |act| %>
+                    <div id='act_<%= act.id %>' class='hidden'>
+                        <h4><%= act.name %></h4>
+                        <%= image_tag act.image %>
+                    </div>
+                <% end %>
+           </td>
         </tr>
         <tr>
             <td>
@@ -31,13 +34,18 @@
         </tr>
         <tr>
             <td>
-                <div>
+                <% Venue.all.each do |venue| %>
+                    <div id='venue_<%= venue.id %>' class='hidden'>
+                        <h4><%= venue.name %></h4>
+                        <p>Location: <%= venue.location %></p>
+                        <p>Capacity: <%= venue.capacity %></p>
+                    </div>
+                <% end %>
 
-                </div>
             </td>
             <td>
                 <div>
-                    <%= f.collection_select(:venue_id, Venue.all, :id, :name, {:selected => Venue.first.id}, { size: Venue.count }) %>
+                    <%= f.collection_select(:venue_id, Venue.all, :id, :name, {:selected => Venue.first.id}, { size: Venue.count, onchange: "venue_change()" }) %>
                 </div>
             </td>
         </tr>
@@ -78,3 +86,27 @@ jQuery('#end_time').datetimepicker({
         </tr>
     </table>
 <% end %>
+
+<script>
+    function act_change() {
+        var act_select = document.getElementsByName("gig[act_id]")[0];
+        var act_select_value = act_select.options[act_select.selectedIndex].value;
+        for (var i = 0; i < act_select.options.length; i++) {
+            document.getElementById('act_' + act_select.options[i].value).className = 'hidden';
+        }
+        document.getElementById('act_' + act_select_value).className = 'showing';
+    } 
+    act_change()
+</script>
+
+<script>
+    function venue_change() {
+        var venue_select = document.getElementsByName("gig[venue_id]")[0];
+        var venue_select_value = venue_select.options[venue_select.selectedIndex].value;
+        for (var i = 0; i < venue_select.options.length; i++) {
+            document.getElementById('venue_' + venue_select.options[i].value).className = 'hidden';
+        }
+        document.getElementById('venue_' + venue_select_value).className = 'showing';
+    } 
+    venue_change();
+</script>

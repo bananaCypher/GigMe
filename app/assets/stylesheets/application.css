@@ -42,6 +42,13 @@ body {
     margin: 0 25px;
     padding: 0 15px;
 }
+.hidden {
+    display: none;
+}
+.showing {
+    display: block;
+    height: 100%;
+}
 img {
     width: 100%;
 }
@@ -217,6 +224,7 @@ table.gig-form {
 }
 table.gig-form td {
     width: 50%;
+    vertical-align: top;
 }
 table.gig-form tr:nth-of-type(even) td {
     background-color: #ececec;
