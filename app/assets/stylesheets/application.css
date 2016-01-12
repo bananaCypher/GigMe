@@ -86,6 +86,7 @@ header.main-header td:first-of-type {
     color: #b6f4f2;
     padding-left: 0;
     border-left: 0;
+    padding-right: 0;
 }
 header.main-header a {
     color: #ff4081;
