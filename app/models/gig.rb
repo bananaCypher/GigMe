@@ -19,6 +19,10 @@ class Gig < ActiveRecord::Base
         "#{self.name} - #{self.pretty_start_date}"
     end
 
+    def pretty_price
+        number_to_currency(self.price, :unit => "£")
+    end
+
     def paragraph
         "#{self.act.name} are playing live at #{self.venue.name} on #{self.full_start}.  Tickets cost £#{self.price}, book yours now before they sell out."
     end

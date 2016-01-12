@@ -11,7 +11,7 @@
             <a href="/gigs/<%= gig.id %>"><%= image_tag gig.act.image %></a>
             <h3><%= gig.act.name %> - Live at <%= gig.venue.name %></h3>
             <p class='gig-small'><%= gig.pretty_start %></p>
-            <p class='gig-small'>£<%= gig.price %></p>
+            <p class='gig-small'><%= number_to_currency(gig.price, unit: '£') %></p>
             <p><%= gig.paragraph %></p>
             <table>
                 <% gig.reviews.sample(3).each do |review| %>
