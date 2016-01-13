@@ -125,6 +125,9 @@ header.fancy-header button {
     border: 0;
     padding: 0 2px;
 }
+header.fancy-header button:hover {
+    background-color: #ff80ab;
+}
 header.fancy-header img {
     height: 35px;
     width: auto;
@@ -206,6 +209,9 @@ article.gig-cards a:last-of-type {
     color: #b6f4f2;
     font-weight: bold;
     text-decoration: none;
+}
+article.gig-cards a:last-of-type:hover {
+    background-color: #ff80ab;
 }
 article.gig-cards input[type='submit'] {
     position: absolute;
@@ -307,6 +313,9 @@ div.gig-show-card a:last-of-type {
     color: #b6f4f2;
     font-weight: bold;
     text-decoration: none;
+}
+div.gig-show-card a:last-of-type:hover {
+    background-color: #ff80ab;
 }
 div.gig-show-card input[type='submit'] {
     position: absolute;
