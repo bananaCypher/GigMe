@@ -11,6 +11,21 @@ class Gig < ActiveRecord::Base
 
     scope :available, -> { all.find_all { |gig|  gig.full? == false } }
 
+    def clash?
+        self.venue.gigs.each do |g|
+            if g == self
+                next
+            end
+            range = (g.start_time.to_i..g.end_time.to_i)
+            if (range) === self.start_time.to_i
+                return "The start time clashes with another gig at this venue"
+            elsif (range) === self.end_time.to_i
+                return "The end time clashes with another gig at this venue"
+            end
+        end
+        return nil
+    end
+
     def name
         self.act.name
     end
