@@ -41,7 +41,7 @@ class GigsController < ApplicationController
         end
         clash = gig.clash?
         if clash
-            redirect_to edit_gig_path(gig), alert: ("Failed to update Gig: #{clash}")
+            redirect_to edit_gig_path(gig), alert: "Failed to update Gig: #{clash}"
         end
         gig.save
         redirect_to gig_path(gig)

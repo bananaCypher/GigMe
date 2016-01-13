@@ -70,6 +70,9 @@ header.main-header h1 a {
 header.main-header h1 a:visited {
     color: #b6f4f2;
 }
+header.main-header h1 span {
+    color: #d2bc03;
+}
 header.main-header td {
     vertical-align: middle;
     white-space: nowrap;
