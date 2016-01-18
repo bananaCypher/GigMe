@@ -6,10 +6,6 @@ class BookingsController < ApplicationController
         @bookings = current_user.paid_bookings
     end
 
-    def show
-        @booking = Booking.find(params[:id])
-    end
-
     def new
        @booking = Booking.new
        @booking.gig_id = params[:gig_id]
