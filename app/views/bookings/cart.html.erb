@@ -7,13 +7,14 @@
                 <th>Item</th>
                 <th>Price</th>
             </tr>
-            <tr>
-                <% @items.each do |item| %>
+            <% @items.each do |item| %>
+                <tr>
                     <td><%= item.gig.name_date %></td>
                     <td> <%= number_to_currency(item.gig.price, unit: '£') %></td>
-                <% end %>
-            </tr>
+                </tr>
+            <% end %>
         </table>
+        <br>
         Total: <%= number_to_currency(current_user.cart_total, unit: '£') %>
         
         <%= form_tag('/checkout', method: 'post') do %>

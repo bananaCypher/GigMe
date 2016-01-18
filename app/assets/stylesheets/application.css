@@ -24,6 +24,7 @@ html {
 }
 body {
     background-color: #b6f4f2;
+    padding-top: 57px;
 }
 .star {
     background-image: url('/Star.png');
@@ -55,6 +56,10 @@ img {
 
 /* Header Styles */
 header.main-header {
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    top: 0;
     display: block;
     background-color: #363636;
     margin-bottom: 40px;
@@ -575,4 +580,20 @@ div.venue-form input[type='submit']{
     padding: 11px 14px;
     color: #b6f4f2;
     font-weight: bold;
+}
+
+div.cart {
+    background-color: #ececec;
+    margin: 25px;
+    padding: 15px;
+    overflow: hidden;
+}
+div.cart th {
+    text-align: left;
+}
+div.cart table tr:nth-of-type(even) {
+    background-color: #cdcdcd;
+}
+div.cart table td {
+    width: 100%; 
 }
