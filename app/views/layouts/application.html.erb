@@ -16,30 +16,29 @@
                 </td>
                 <% if current_user %>
                     <td>
-                        <%= link_to "My Bookings", bookings_path %>
+                        <%= link_to fa_icon('ticket 2x', title: 'My Bookings', text: 'My Bookings'), bookings_path %>
                     </td>
                 <% end %>
                 <td>
-                    <%= link_to 'Gigs', gigs_path %>
+                    <%= link_to fa_icon('music 2x', title: 'Gigs', text: 'Gigs'), gigs_path %>
                 </td>
                 <td>
-                    <%= link_to 'Acts', acts_path %>
+                    <%= link_to fa_icon('microphone 2x', title: 'Acts', text: 'Acts'), acts_path %>
                 </td>
                 <td>
-                    <%= link_to 'Venues', venues_path, method: :get %>
+                    <%= link_to fa_icon('map-marker  2x', title: 'Venues', text: 'Venues'), venues_path, method: :get %>
                 </td>
                 <% if current_user %>
                     <% if current_user.role? 'admin' %>
                         <td>
-                            <%= link_to 'Admin', '/admins/actions' %>
+                            <%= link_to fa_icon('pencil 2x', title: 'Admin Actions', text: 'Admin Actions'), '/admins/actions' %>
                         </td>
                     <% end %>
                     <td>
-                        <%= link_to "Cart", '/cart' %>
+                        <%= link_to fa_icon('shopping-cart 2x', title: "Shopping Cart", text: "Shopping Cart"), cart_path %>
                     </td>
                     <td>
-                        <span><%= link_to "Log Out", destroy_user_session_path, method: :delete %>: <%= current_user.email %></span>
-                    </td>
+                        <%= link_to fa_icon('sign-out 2x', title: 'Logout', text: "Logout: #{current_user.email}"), destroy_user_session_path, method: :delete %>                     </td>
                 <% else %>
                     <td>
                         <%= link_to 'Log In', new_user_session_path %>
