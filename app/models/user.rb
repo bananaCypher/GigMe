@@ -31,4 +31,7 @@ class User < ActiveRecord::Base
         self.bookings.detect {|b| gig.start_time >= b.gig.start_time and gig.start_time <= b.gig.end_time and b.gig != gig}
     end
 
+    def cart_items
+        self.bookings.where(status: 'unpaid')
+    end
 end

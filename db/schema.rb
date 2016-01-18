@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112100255) do
+ActiveRecord::Schema.define(version: 20160118092317) do
 
   create_table "acts", force: :cascade do |t|
     t.string   "name"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160112100255) do
     t.string   "gig_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "status"
   end
 
   create_table "currency_conversions", force: :cascade do |t|
