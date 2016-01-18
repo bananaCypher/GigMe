@@ -41,10 +41,10 @@
                         <%= link_to fa_icon('sign-out 2x', title: 'Logout', text: "Logout: #{current_user.email}"), destroy_user_session_path, method: :delete %>                     </td>
                 <% else %>
                     <td>
-                        <%= link_to 'Log In', new_user_session_path %>
+                        <%= link_to fa_icon('sign-in 2x', title: 'Log In', text: 'Log In'), new_user_session_path %>
                     </td>
                     <td>
-                        <%= link_to 'Register', new_user_registration_path %>
+                        <%= link_to fa_icon('user-plus 2x', title: 'Register', text: 'Register'), new_user_registration_path %>
                     </td>
                 <% end %>
             </tr>
