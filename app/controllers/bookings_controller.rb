@@ -54,6 +54,7 @@ class BookingsController < ApplicationController
             :currency    => 'gbp'
         )
         items.each {|item| item.update(status: 'paid')}
+        UserMailer.reciept_email(current_user, items, amount.to_f / 100).deliver
         redirect_to bookings_path
     end
 

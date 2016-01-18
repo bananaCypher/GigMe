@@ -12,7 +12,7 @@
             <%= image_tag @booking.gig.act.image %>
             <h2><%= @booking.gig.act.name %> - <%= @booking.gig.pretty_start_date %></h2>
             <p>Location: <%= @booking.gig.venue.name %>, <%= @booking.gig.venue.location %></p>
-            <p>Cost: £<%= @booking.gig.price %></p>
+            <p>Cost: <%= number_to_currency(@booking.gig.price, unit: '£') %></p>
             <%= f.hidden_field :gig_id, value: @booking.gig.id %>
             <%= f.label :tickets, 'Number of tickets' %><%= f.number_field :tickets, {value: 1, min: 1, max: 6} %>
             <%= f.submit 'Add to cart' %>
