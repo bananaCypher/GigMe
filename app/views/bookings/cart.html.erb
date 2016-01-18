@@ -1,0 +1,30 @@
+<div class='cart'>
+    <h1>Cart</h1>
+    
+    <% if !@items.empty? %>
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <% @items.each do |item| %>
+                    <td><%= item.gig.name_date %></td>
+                    <td> <%= number_to_currency(item.gig.price, unit: '£') %></td>
+                <% end %>
+            </tr>
+        </table>
+        Total: <%= number_to_currency(current_user.cart_total, unit: '£') %>
+        
+        <%= form_tag('/checkout', method: 'post') do %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                            data-currency="gbp"
+                            data-amount="<%= current_user.cart_total * 100 %>"
+                            data-locale="auto">
+            </script>
+        <% end %>
+    <% else %>
+        <p>Your cart is empty</p>
+    <% end %>
+</div>

@@ -13,13 +13,8 @@
             <h2><%= @booking.gig.act.name %> - <%= @booking.gig.pretty_start_date %></h2>
             <p>Location: <%= @booking.gig.venue.name %>, <%= @booking.gig.venue.location %></p>
             <p>Cost: £<%= @booking.gig.price %></p>
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                data-currency="gbp"
-                data-amount="<%= @booking.gig.price * 100 %>"
-                data-locale="auto">
-            </script>
             <%= f.hidden_field :gig_id, value: @booking.gig.id %>
+            <%= f.submit 'Add to cart' %>
         <% end %>   
     </div>
 </div>

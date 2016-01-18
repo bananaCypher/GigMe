@@ -34,4 +34,12 @@ class User < ActiveRecord::Base
     def cart_items
         self.bookings.where(status: 'unpaid')
     end
+    
+    def cart_total
+        self.cart_items.inject(0){|sum, i| sum += i.gig.price}
+    end
+
+    def paid_bookings
+        self.bookings.where(status: 'paid')
+    end
 end

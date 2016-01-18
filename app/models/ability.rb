@@ -15,6 +15,7 @@ class Ability
             can :read, Booking do |booking|
                 booking.user == user
             end
+            can :cart, Booking
         end
 
         # Define abilities for the passed in user here. For example:
