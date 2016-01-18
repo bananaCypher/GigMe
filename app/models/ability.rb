@@ -15,6 +15,10 @@ class Ability
             can :read, Booking do |booking|
                 booking.user == user
             end
+            can :checkout, Booking
+            can :destroy, Booking do |booking|
+                booking.status == 'unpaid'
+            end
             can :cart, Booking
         end
 
