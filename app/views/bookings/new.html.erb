@@ -14,6 +14,7 @@
             <p>Location: <%= @booking.gig.venue.name %>, <%= @booking.gig.venue.location %></p>
             <p>Cost: £<%= @booking.gig.price %></p>
             <%= f.hidden_field :gig_id, value: @booking.gig.id %>
+            <%= f.label :tickets, 'Number of tickets' %><%= f.number_field :tickets, {value: 1, min: 1, max: 6} %>
             <%= f.submit 'Add to cart' %>
         <% end %>   
     </div>

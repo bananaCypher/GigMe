@@ -35,7 +35,7 @@ class Gig < ActiveRecord::Base
     end
 
     def paragraph
-        "#{self.act.name} are playing live at #{self.venue.name} on #{self.full_start}.  Tickets cost £#{self.price}, book yours now before they sell out."
+        "#{self.act.name} are playing live at #{self.venue.name} on #{self.full_start}.  Tickets cost #{ActionController::Base.helpers.number_to_currency(self.price, unit: '£')}, book yours now before they sell out."
     end
 
     def average_rating

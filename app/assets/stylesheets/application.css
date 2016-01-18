@@ -59,6 +59,8 @@ header.main-header {
     display: block;
     background-color: #363636;
     margin-bottom: 40px;
+    max-width: 100%;
+    overflow: scroll;
 }
 header.main-header h1 {
     margin: 0 0;
@@ -603,5 +605,9 @@ div.cart table tr:nth-of-type(even) {
     background-color: #cdcdcd;
 }
 div.cart table td {
+    padding: 5px;
     width: 100%; 
+}
+div.cart a {
+    color: #ff4081;
 }

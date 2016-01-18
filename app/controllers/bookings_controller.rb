@@ -16,39 +16,26 @@ class BookingsController < ApplicationController
     end
 
     def create
-        booking = Booking.new(booking_params)
-        if !booking.gig.full?
+        tickets = params['booking'][:tickets].to_i
+        if Gig.find(params['booking'][:gig_id]).available_spaces < tickets
+            redirect_to root_path, alert: ("Failed to create Booking: Unfortunatley there aren't enough tickets left.")
+            return
+        end
+        tickets.times do
+            booking = Booking.new(booking_params)
             booking.user = current_user
             booking.status = 'unpaid'
             if booking.valid?
                 booking.save
-                #@amount = (booking.gig.price * 100).to_i
-
-                #customer = Stripe::Customer.create(
-                #    :email => params[:stripeEmail],
-                #    :source  => params[:stripeToken]
-                #)
-
-                #charge = Stripe::Charge.create(
-                #    :customer    => customer.id,
-                #    :amount      => @amount,
-                #    :description => 'Rails Stripe customer',
-                #    :currency    => 'gbp'
-                #)
-            else
-                redirect_to root_path, alert: ("Failed to create Booking: " + booking.errors.full_messages.join(", "))
-                return
             end
-            redirect_to cart_path
-        else 
-            raise ArgumentError.new('Unfortunatley that gig is fully booked.') 
         end
+        redirect_to cart_path
     end
 
     def destroy
         booking = Booking.find(params[:id])
         booking.destroy
-        redirect_to bookings_path
+        redirect_to cart_path
     end
 
     def cart
