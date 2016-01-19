@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
 
     def new
        @booking = Booking.new
-       @booking.gig_id = params[:gig_id]
+       #@booking.gig_id = params[:gig_id]
     end
 
     def create
@@ -37,6 +37,7 @@ class BookingsController < ApplicationController
 
     def cart
         @items = current_user.cart_items
+        @items = Booking.group_bookings(current_user.cart_items)
     end
 
     def checkout

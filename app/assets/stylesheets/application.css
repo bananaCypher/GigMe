@@ -596,6 +596,7 @@ div.venue-form input[type='submit']{
     font-weight: bold;
 }
 
+/* Cart view */
 div.cart {
     background-color: #ececec;
     margin: 25px;
@@ -616,6 +617,7 @@ div.cart a {
     color: #ff4081;
 }
 
+/* Calendar view */
 div.calendar-header h1{
     text-align: center;
 }
