@@ -644,9 +644,15 @@ table.calendar td {
 table.calendar td.nil-day {
     background-color: #a4a4a4;
 }
+table.calendar td h1 {
+    margin: 0;
+    padding: 0;
+    color: #a4a4a4;
+}
 table.calendar td a {
     color: #ff80ab;
     text-decoration: none;
+    font-size: 0.9rem;
 }
 table.calendar td a:hover {
     text-decoration: underline;

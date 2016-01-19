@@ -1,24 +1,24 @@
 <h1 class="bookings-title">My Bookings</h1>
-<% @bookings.each do |booking| %>
+<% @bookings.each do |key, bookings| %>
     <div class="booking-card">
-        <%= image_tag booking.gig.act.image %>
-        <h2><%= booking.gig.act.name %> - <%= booking.gig.pretty_start_date %></h2>
-        <p>Location: <%= booking.gig.venue.name %>, <%= booking.gig.venue.location %></p>
-        <p>Cost: <%= number_to_currency(booking.gig.price, unit: '£') %></p>
-        <%= link_to "View Gig Details", gig_path(booking.gig) %>
-        <%= link_to "Add to Google Calendar", booking.gig.google_calendar_url, target: '_blank' %>
+        <%= image_tag bookings.first.gig.act.image %>
+        <h2><%= bookings.first.gig.act.name %> - <%= bookings.first.gig.pretty_start_date %> x<%= bookings.count %></h2>
+        <p>Location: <%= bookings.first.gig.venue.name %>, <%= bookings.first.gig.venue.location %></p>
+        <p>Cost: <%= number_to_currency(bookings.inject(0){|sum,b| sum += b.gig.price}, unit: '£') %></p>
+        <%= link_to "View Gig Details", gig_path(bookings.first.gig) %>
+        <%= link_to "Add to Google Calendar", bookings.first.gig.google_calendar_url, target: '_blank' %>
     </div>
 <% end %>
 
 <br>
 <h1 class="bookings-title">Past bookings</h1>
-<% @past_bookings.each do |booking| %>
+<% @past_bookings.each do |key, bookings| %>
      <div class="booking-card">
-        <%= image_tag booking.gig.act.image %>
-        <h2><%= booking.gig.act.name %> - <span class="red"><%= booking.gig.pretty_start_date %></span></h2>
-        <p>Location: <%= booking.gig.venue.name %>, <%= booking.gig.venue.location %></p>
-        <p>Cost: <%= number_to_currency(booking.gig.price, unit: '£') %></p>
-        <%= link_to "View Gig Details", gig_path(booking.gig) %>
-        <%= link_to "Leave a review", new_review_path(gig_id: booking.gig.id) %>
+        <%= image_tag bookings.first.gig.act.image %>
+        <h2><%= bookings.first.gig.act.name %> - <span class="red"><%= bookings.first.gig.pretty_start_date %></span> x<%= bookings.count %></h2>
+        <p>Location: <%= bookings.first.gig.venue.name %>, <%= bookings.first.gig.venue.location %></p>
+        <p>Cost: <%= number_to_currency(bookings.inject(0){|sum,b| sum += b.gig.price}, unit: '£') %></p>
+        <%= link_to "View Gig Details", gig_path(bookings.first.gig) %>
+        <%= link_to "Leave a review", new_review_path(gig_id: bookings.first.gig.id) %>
     </div>
 <% end %>

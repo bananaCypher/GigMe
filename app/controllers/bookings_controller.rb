@@ -5,6 +5,8 @@ class BookingsController < ApplicationController
     def index
         @bookings = current_user.upcoming_bookings.includes(:gig).order("gigs.start_time")
         @past_bookings = current_user.passed_bookings.includes(:gig).order("gigs.start_time")
+        @bookings = Booking.group_bookings(current_user.upcoming_bookings.includes(:gig).order("gigs.start_time"))
+        @past_bookings = Booking.group_bookings(current_user.passed_bookings.includes(:gig).order("gigs.start_time"))
     end
 
     def new

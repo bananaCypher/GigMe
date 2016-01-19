@@ -26,7 +26,7 @@
             <% end %>
             <% if day %>
                 <td>
-                    <%= day.day %>
+                    <h1><%= day.day %></h1>
                     <div class='calendar-booking'>
                         <% current_user.unique_bookings_on(day).each do |key, bookings| %>
                             <%= link_to "#{bookings.first.gig.pretty_start_time} - #{bookings.first.gig.act.name} x#{bookings.count}", gig_path(bookings.first.gig_id) %><br>
