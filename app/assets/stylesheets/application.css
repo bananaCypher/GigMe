@@ -619,6 +619,12 @@ div.cart a {
 div.calendar-header h1{
     text-align: center;
 }
+div.calendar-header a {
+    color: #ff4081;
+}
+div.calendar-header a:visited {
+    color: #ff4081;
+}
 table.calendar {
     table-layout: fixed;
     width: 100%;
@@ -632,4 +638,17 @@ table.calendar, table.calendar th, table.calendar td {
 table.calendar td {
     height: 150px;
     overflow: hidden;
+}
+table.calendar td.nil-day {
+    background-color: #a4a4a4;
+}
+table.calendar td a {
+    color: #ff80ab;
+    text-decoration: none;
+}
+table.calendar td a:hover {
+    text-decoration: underline;
+}
+table.calendar td a:visited {
+    color: #ff80ab;
 }
