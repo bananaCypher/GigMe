@@ -3,7 +3,8 @@ class BookingsController < ApplicationController
     load_and_authorize_resource
 
     def index
-        @bookings = current_user.paid_bookings
+        @bookings = current_user.upcoming_bookings.includes(:gig).order("gigs.start_time")
+        @past_bookings = current_user.passed_bookings.includes(:gig).order("gigs.start_time")
     end
 
     def new

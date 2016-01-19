@@ -115,6 +115,10 @@ class Gig < ActiveRecord::Base
         return url
     end
 
+    def passed?
+        self.start_time < Time.now
+    end
+
     private
     def pretty_time(time)
         time.strftime("%d/%m/%Y %H:%M")

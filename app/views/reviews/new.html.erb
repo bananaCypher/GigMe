@@ -1,7 +1,7 @@
 <div class='review-form'>
     <%= form_for @review do |f| %>
         <%= f.label :gig_id %><br>
-        <%= f.collection_select(:gig_id, Gig.all, :id, :name_date) %>
+        <%= f.collection_select(:gig_id, current_user.passed_bookings.map{|b| b.gig}, :id, :name_date) %>
         <%= f.radio_button(:rating, "1", checked: true) %>
         <label for='review_rating_1'></label>
         <%= f.radio_button(:rating, "2") %>

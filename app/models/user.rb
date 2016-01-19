@@ -47,4 +47,12 @@ class User < ActiveRecord::Base
     def send_welcome_email
         UserMailer.welcome_email(self).deliver
     end
+
+    def passed_bookings
+        self.paid_bookings.joins(:gig).where("gigs.start_time < ?", Time.now)
+    end
+
+    def upcoming_bookings
+        self.paid_bookings.joins(:gig).where("gigs.start_time > ?", Time.now)
+    end
 end

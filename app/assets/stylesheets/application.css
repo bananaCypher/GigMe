@@ -50,6 +50,9 @@ body {
     display: block;
     height: 100%;
 }
+.red {
+    color: red;
+}
 img {
     width: 100%;
 }
