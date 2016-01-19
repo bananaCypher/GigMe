@@ -60,11 +60,25 @@ class BookingsController < ApplicationController
     end
 
     def calendar
-        month_date = Time.now
+        if params['month'] and params['year']
+            @month_date = Time.new(params['year'], params['month'], 1)
+        else
+            @month_date = Time.now
+        end
+
+    
+        last_month = @month_date - 1.months
+        @last_month = last_month.month
+        @last_year = last_month.year
+
+        next_month = @month_date + 1.months
+        @next_month = next_month.month
+        @next_year = next_month.year
+
         @events = current_user.bookings
-        @month_name = I18n.t("date.month_names")[month_date.month]
-        month_days = Time.days_in_month(month_date.month, month_date.year)
-        first_day = month_date.beginning_of_month.strftime("%A")
+        @month_name = I18n.t("date.month_names")[@month_date.month]
+        month_days = Time.days_in_month(@month_date.month, @month_date.year)
+        first_day = @month_date.beginning_of_month.strftime("%A")
         case first_day
             when 'Monday'
                 offset = 0
@@ -86,7 +100,7 @@ class BookingsController < ApplicationController
             @month_array.push(nil)
         end
         month_days.times do |day|
-            @month_array.push(Time.new(month_date.year, month_date.month, day + 1))
+            @month_array.push(Time.new(@month_date.year, @month_date.month, day + 1))
         end
     end
 

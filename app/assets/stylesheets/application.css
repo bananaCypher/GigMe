@@ -616,6 +616,9 @@ div.cart a {
     color: #ff4081;
 }
 
+div.calendar-header h1{
+    text-align: center;
+}
 table.calendar {
     table-layout: fixed;
     width: 100%;
