@@ -639,7 +639,7 @@ table.calendar, table.calendar th, table.calendar td {
 }
 table.calendar td {
     height: 150px;
-    overflow: hidden;
+    overflow: scroll;
 }
 table.calendar td.nil-day {
     background-color: #a4a4a4;
