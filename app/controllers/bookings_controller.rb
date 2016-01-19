@@ -8,8 +8,7 @@ class BookingsController < ApplicationController
     end
 
     def new
-       @booking = Booking.new
-       #@booking.gig_id = params[:gig_id]
+       @booking.gig_id = params[:gig_id]
     end
 
     def create

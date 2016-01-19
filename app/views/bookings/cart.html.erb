@@ -5,14 +5,16 @@
         <table>
             <tr>
                 <th>Item</th>
+                <th>Count</th>
                 <th>Price</th>
                 <th></th>
             </tr>
-            <% @items.each do |item| %>
+            <% @items.each do |key, items| %>
                 <tr>
-                    <td><%= item.gig.name_date %></td>
-                    <td><%= number_to_currency(item.gig.price, unit: '£') %></td>
-                    <td><%= link_to fa_icon('trash 2x', title: 'Delete'), booking_path(item), method: :delete %></td>
+                    <td><%= items.first.gig.name_date %></td>
+                    <td><%= items.count %></td>
+                    <td><%= number_to_currency(items.first.gig.price, unit: '£') %></td>
+                    <td><%= link_to fa_icon('trash 2x', title: 'Delete'), booking_path(items.first), method: :delete %></td>
                 </tr>
             <% end %>
         </table>

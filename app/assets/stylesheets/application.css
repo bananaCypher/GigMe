@@ -603,7 +603,7 @@ div.cart {
     padding: 15px;
     overflow: hidden;
 }
-div.cart th {
+div.cart th:first-of-type {
     text-align: left;
 }
 div.cart table tr:nth-of-type(even) {
