@@ -55,4 +55,15 @@ class User < ActiveRecord::Base
     def upcoming_bookings
         self.paid_bookings.joins(:gig).where("gigs.start_time > ?", Time.now)
     end
+
+    def bookings_on(day)
+        day_start = day
+        day_end = Time.new(day.year, day.month, day.day, 23, 59, 59)
+        self.paid_bookings.joins(:gig).where(["gigs.start_time > ? and gigs.start_time < ?", day_start, day_end]).order("gigs.start_time")
+    end
+
+    def unique_bookings_on(day)
+        bookings = self.bookings_on(day)
+        Booking.group_bookings(bookings)
+    end
 end

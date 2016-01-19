@@ -615,3 +615,18 @@ div.cart table td {
 div.cart a {
     color: #ff4081;
 }
+
+table.calendar {
+    table-layout: fixed;
+    width: 100%;
+    background-color: #ececec;
+    border-collapse: collapse;
+}
+table.calendar, table.calendar th, table.calendar td {
+    border: 1px solid black;
+    vertical-align: top;
+}
+table.calendar td {
+    height: 150px;
+    overflow: hidden;
+}

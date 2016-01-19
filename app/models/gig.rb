@@ -79,6 +79,10 @@ class Gig < ActiveRecord::Base
         pretty_time(self.end_time)
     end
 
+    def pretty_start_time
+        self.start_time.strftime("%H:%M")
+    end
+
     def pretty_start_date
         pretty_date(self.start_time)
     end

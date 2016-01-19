@@ -59,6 +59,38 @@ class BookingsController < ApplicationController
         redirect_to bookings_path
     end
 
+    def calendar
+        month_date = Time.now
+        @events = current_user.bookings
+        @month_name = I18n.t("date.month_names")[month_date.month]
+        month_days = Time.days_in_month(month_date.month, month_date.year)
+        first_day = month_date.beginning_of_month.strftime("%A")
+        case first_day
+            when 'Monday'
+                offset = 0
+            when 'Tuesday'
+                offset = 1
+            when 'Wednesday'
+                offset = 2
+            when 'Thursday'
+                offset = 3
+            when 'Friday'
+                offset = 4
+            when 'Saturday'
+                offset = 5
+            when 'Sunday'
+                offset = 6
+        end
+        @month_array = []
+        offset.times do 
+            @month_array.push(nil)
+        end
+        month_days.times do |day|
+            @month_array.push(Time.new(month_date.year, month_date.month, day + 1))
+        end
+    end
+
+    
     private
     def booking_params
         params.require(:booking).permit(:gig_id)

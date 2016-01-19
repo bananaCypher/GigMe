@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>calendar</title>
+    
+</head>
+<body>
+    <h1><%= @month_name %></h1>
+    <table class="calendar">
+        <tr>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+            <th>Sunday</th>
+        </tr>
+        <tr>
+        <% @month_array.each_with_index do |day, index| %>
+            <% if [7, 14, 21, 28, 35].include?(index) %>
+                </tr>
+                <tr>
+            <% end %>
+            <% if day %>
+                <td>
+                    <%= day.day %>
+                    <div class='calendar-booking'>
+                        <% current_user.unique_bookings_on(day).each do |key, bookings| %>
+                            <%= link_to "#{bookings.first.gig.pretty_start_time} - #{bookings.first.gig.act.name} x#{bookings.count}", gig_path(bookings.first.gig_id) %><br>
+                        <% end %>
+                    </div>
+                </td>
+            <% else %>
+                <td></td>
+            <% end %>
+        <% end %>
+        </tr>
+    </table>
+</body>
+</html>

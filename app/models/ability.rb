@@ -20,6 +20,7 @@ class Ability
                 booking.status == 'unpaid'
             end
             can :cart, Booking
+            can :calendar, Booking
         end
 
         # Define abilities for the passed in user here. For example:

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :charges
 
   get 'bookings/new/:gig_id' => 'bookings#new'
+  get 'calendar' => 'bookings#calendar'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
