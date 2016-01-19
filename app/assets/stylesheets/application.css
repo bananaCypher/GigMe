@@ -380,6 +380,9 @@ h1.bookings-title {
 a.review-link {
     margin-left: 25px;
 }
+p.no-bookings {
+    margin-left: 25px;
+}
 div.booking-card {
     background-color: #ececec;
     margin: 25px;
@@ -629,16 +632,18 @@ div.calendar-header a:visited {
 }
 table.calendar {
     table-layout: fixed;
-    width: 100%;
+    width: 97%;
     background-color: #ececec;
     border-collapse: collapse;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
 }
 table.calendar, table.calendar th, table.calendar td {
     border: 1px solid black;
     vertical-align: top;
 }
 table.calendar td {
-    height: 150px;
+    height: 130px;
     overflow: scroll;
 }
 table.calendar td.nil-day {

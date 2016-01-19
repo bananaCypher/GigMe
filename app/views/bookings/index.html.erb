@@ -1,24 +1,32 @@
 <h1 class="bookings-title">My Bookings</h1>
-<% @bookings.each do |key, bookings| %>
-    <div class="booking-card">
-        <%= image_tag bookings.first.gig.act.image %>
-        <h2><%= bookings.first.gig.act.name %> - <%= bookings.first.gig.pretty_start_date %> x<%= bookings.count %></h2>
-        <p>Location: <%= bookings.first.gig.venue.name %>, <%= bookings.first.gig.venue.location %></p>
-        <p>Cost: <%= number_to_currency(bookings.inject(0){|sum,b| sum += b.gig.price}, unit: '£') %></p>
-        <%= link_to "View Gig Details", gig_path(bookings.first.gig) %>
-        <%= link_to "Add to Google Calendar", bookings.first.gig.google_calendar_url, target: '_blank' %>
-    </div>
+<% if @bookings.empty? %>
+    <p class='no-bookings'>You have no upcoming bookings</p>
+<% else %>
+    <% @bookings.each do |key, bookings| %>
+        <div class="booking-card">
+            <%= image_tag bookings.first.gig.act.image %>
+            <h2><%= bookings.first.gig.act.name %> - <%= bookings.first.gig.pretty_start_date %> x<%= bookings.count %></h2>
+            <p>Location: <%= bookings.first.gig.venue.name %>, <%= bookings.first.gig.venue.location %></p>
+            <p>Cost: <%= number_to_currency(bookings.inject(0){|sum,b| sum += b.gig.price}, unit: '£') %></p>
+            <%= link_to "View Gig Details", gig_path(bookings.first.gig) %>
+            <%= link_to "Add to Google Calendar", bookings.first.gig.google_calendar_url, target: '_blank' %>
+        </div>
+    <% end %>
 <% end %>
 
 <br>
 <h1 class="bookings-title">Past bookings</h1>
-<% @past_bookings.each do |key, bookings| %>
-     <div class="booking-card">
-        <%= image_tag bookings.first.gig.act.image %>
-        <h2><%= bookings.first.gig.act.name %> - <span class="red"><%= bookings.first.gig.pretty_start_date %></span> x<%= bookings.count %></h2>
-        <p>Location: <%= bookings.first.gig.venue.name %>, <%= bookings.first.gig.venue.location %></p>
-        <p>Cost: <%= number_to_currency(bookings.inject(0){|sum,b| sum += b.gig.price}, unit: '£') %></p>
-        <%= link_to "View Gig Details", gig_path(bookings.first.gig) %>
-        <%= link_to "Leave a review", new_review_path(gig_id: bookings.first.gig.id) %>
-    </div>
+    <% if @past_bookings.empty? %>
+        <p class='no-bookings'>You have no past bookings</p>
+    <% else %>
+    <% @past_bookings.each do |key, bookings| %>
+         <div class="booking-card">
+            <%= image_tag bookings.first.gig.act.image %>
+            <h2><%= bookings.first.gig.act.name %> - <span class="red"><%= bookings.first.gig.pretty_start_date %></span> x<%= bookings.count %></h2>
+            <p>Location: <%= bookings.first.gig.venue.name %>, <%= bookings.first.gig.venue.location %></p>
+            <p>Cost: <%= number_to_currency(bookings.inject(0){|sum,b| sum += b.gig.price}, unit: '£') %></p>
+            <%= link_to "View Gig Details", gig_path(bookings.first.gig) %>
+            <%= link_to "Leave a review", new_review_path(gig_id: bookings.first.gig.id) %>
+        </div>
+    <% end %>
 <% end %>
