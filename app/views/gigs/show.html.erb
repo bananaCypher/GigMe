@@ -1,16 +1,16 @@
 <div class='gig-show-card'>
     <ul>
         <li><h1><%= @gig.act.name %></h1></li>
-        <% @gig.avg_rating_stars_range.each do %>
+        <% @gig.act.avg_rating_stars_range.each do %>
             <li class="star"></li>
         <% end %>
-        <% @gig.avg_rating_no_stars_range.each do %>
+        <% @gig.act.avg_rating_no_stars_range.each do %>
             <li class="no-star"></li>
         <% end %>
     </ul>
     <div class='gig-show-img'>
         <%= image_tag @gig.act.image %>
-        <p>Date: <%= @gig.pretty_start_date %></p>
+        <p <%= "class=red" if @gig.passed? %>>Date: <%= @gig.pretty_start_date %></p>
         <p>Time: <%= @gig.start_time.to_s(:time) %></p>
         <p>Seats Left: <%= @gig.available_spaces %></p> 
     </div>
@@ -23,12 +23,17 @@
         <form>
             <input type='submit' disabled value='Sold Out'>
         </form>
+    <% elsif @gig.passed? %>
+        <a></a>
+        <form>
+            <input type="submit" disabled value="Passed"> 
+        </form>
     <% else %>
         <a href="/bookings/new/<%= @gig.id %>">Book Now</a>
     <% end %>
 </div>
 
-<% @gig.reviews.each do |review| %>
+<% @gig.act.reviews.each do |review| %>
     <div class="gig-review">
         <ul>
             <li><h3><%= review.user.email %> - <%= review.created_at %></h3></li>

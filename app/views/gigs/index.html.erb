@@ -14,7 +14,7 @@
             <p class='gig-small'><%= number_to_currency(gig.price, unit: '£') %></p>
             <p><%= gig.paragraph %></p>
             <table>
-                <% gig.reviews.sample(3).each do |review| %>
+                <% gig.act.reviews.sample(3).each do |review| %>
                     <tr>
                         <% review.stars_range.each do %>
                             <td class="star"></td>

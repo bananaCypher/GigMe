@@ -18,7 +18,7 @@
             <p class='gig-small'>£<%= gig.price %></p>
             <p><%= gig.paragraph %></p>
             <table>
-                <% gig.reviews.sample(3).each do |review| %>
+                <% @act.reviews.sample(3).each do |review| %>
                     <tr>
                         <% review.stars_range.each do %>
                             <td class="star"></td>
@@ -41,7 +41,7 @@
     <% end %>
 </article>
 
-<% @act.gigs.map{|gig| gig.reviews}.flatten.each do |review| %>
+<% @act.reviews.each do |review| %>
     <div class="gig-review">
         <ul>
             <li><h3><%= review.user.email %> - <%= review.created_at %></h3></li>
