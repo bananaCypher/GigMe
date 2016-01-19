@@ -7,5 +7,6 @@
         <p>Location: <%= booking.gig.venue.name %>, <%= booking.gig.venue.location %></p>
         <p>Cost: <%= number_to_currency(booking.gig.price, unit: '£') %></p>
         <%= link_to "View Gig Details", gig_path(booking.gig) %>
+        <%= link_to "Add to Google Calendar", booking.gig.google_calendar_url, target: '_blank' %>
     </div>
 <% end %>

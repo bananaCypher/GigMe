@@ -95,6 +95,25 @@ class Gig < ActiveRecord::Base
         full_time(self.end_time)
     end
 
+    def start_ISO_8601
+         self.start_time.iso8601.gsub('-', '').gsub(':', '')
+    end
+
+    def end_ISO_8601 
+        self.end_time.iso8601.gsub('-', '').gsub(':', '')
+    end
+
+    def google_calendar_url
+        name = url_stringify(self.name)
+        start_date = start_ISO_8601
+        end_date = end_ISO_8601
+        details = url_stringify(self.paragraph)
+        location = url_stringify(self.venue.name)
+
+        url =  "https://www.google.com/calendar/render?action=TEMPLATE&text=#{name}&dates=#{start_date}/#{end_date}&details=#{details}&location=#{location}&sf=true&output=xml"
+
+        return url
+    end
 
     private
     def pretty_time(time)
@@ -117,5 +136,9 @@ class Gig < ActiveRecord::Base
             mod = 'th'
         end
         time.strftime("%-d#{mod} of %B %Y")
+    end
+
+    def url_stringify(string)
+        string.split(' ').join('+')
     end
 end

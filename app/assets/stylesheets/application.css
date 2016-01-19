@@ -397,9 +397,9 @@ div.booking-card p {
     margin: 0;
 }
 div.booking-card a {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
+    position: relative;
+    bottom: -35px;
+    /* left: 10px; */
     background-color: #ff4081;
     border: 0;
     padding: 11px 14px;
